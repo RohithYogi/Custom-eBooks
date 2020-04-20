@@ -9,12 +9,12 @@
 	<meta name="keywords" content="free website templates, free html5, free template, free bootstrap, free website template, html5, css3, mobile first, responsive" />
 	<meta name="author" content="gettemplates.co" />
 
-	<!-- 
+	<!--
 	//////////////////////////////////////////////////////
 
-	FREE HTML5 TEMPLATE 
+	FREE HTML5 TEMPLATE
 	DESIGNED & DEVELOPED by FreeHTML5.co
-		
+
 	Website: 		http://freehtml5.co/
 	Email: 			info@freehtml5.co
 	Twitter: 		http://twitter.com/fh5co
@@ -35,7 +35,7 @@
 	<meta name="twitter:card" content="" />
 
 	<!-- <link href='https://fonts.googleapis.com/css?family=Work+Sans:400,300,600,400italic,700' rel='stylesheet' type='text/css'> -->
-	
+
 	<!-- Animate.css -->
 	<link rel="stylesheet" href="css/animate.css">
 	<!-- Icomoon Icon Fonts-->
@@ -54,9 +54,9 @@
 
 	</head>
 	<body>
-		
+
 	<div class="fh5co-loader"></div>
-	
+
 	<div id="page">
 	<nav class="fh5co-nav" role="navigation">
 		<div class="container">
@@ -86,7 +86,7 @@
 					</ul>
 				</div>
 			</div>
-			
+
 		</div>
 	</nav>
 
@@ -114,115 +114,8 @@
 		</div>
 	</header>
 
-	<div id="fh5co-core-feature">
-		<div class="container">
-			<div class="row">
-				<div class="features">
-					<div class="col-half-image-holder animate-box" data-animate-effect="fadeInRight">
-						<img class="img-responsive" src="images/bookcover.jpg" alt="samsung">
-					</div>
-					<div class="col-half animate-box" data-animate-effect="fadeInLeft">
-						<div class="table-c">
-							<div class="desc">
-								<div class="columns">
-								  <ul class="price">
-								    <li class="header">Chapters</li>
-								    <!-- <li>Chapter-1</li>
-								    <li>Chapter-2</li>
-								    <li>Chapter-3</li>
-								    <li>Chapter-4</li>
-								    <li>Chapter-5</li>
-								    <li>Chapter-6</li>
-								    <li>Chapter-7</li> -->
-								    <div class="accordions">
-									  	<div class="accordion-item">
-									    	<div class="accordion-title" data-tab="item1">
-									      		<h2>Chapter-1 <i class="fas fa-chevron-down"></i></h2>
-									    	</div>
-									    	<div class="accordion-content" id="item1">
-										      	<div class="accordions">
-										  			<div class="accordion-item">
-										    			<div class="accordion-title" data-tab="item11">
-										      				<h2>Section-1 <i class="fas fa-chevron-down"></i></h2>
-										    			</div>
-										    			<div class="accordion-content" id="item11">
-										      
-										    			</div>
-										  			</div>
-										  			<div class="accordion-item">
-										    			<div class="accordion-title" data-tab="item12">
-										      				<h2>Section-2 <i class="fas fa-chevron-down"></i></h2>
-										    			</div>
-										    			<div class="accordion-content" id="item12">
-										      
-										    			</div>
-										  			</div>
-									    		</div>
-									  		</div>
-									  	</div>
-
-									  	<div class="accordion-item">
-									    	<div class="accordion-title" data-tab="item2">
-									      		<h2>Chapter-2 <i class="fas fa-chevron-down"></i></h2>
-									    	</div>
-									    	<div class="accordion-content" id="item2">
-									      
-									    	</div>
-									  	</div>
-
-									  	<div class="accordion-item">
-									    	<div class="accordion-title" data-tab="item3">
-									      		<h2>Chapter-3 <i class="fas fa-chevron-down"></i></h2>
-									    	</div>
-									    	<div class="accordion-content" id="item3">
-									      
-									    	</div>
-									  	</div>
-
-									  	<div class="accordion-item">
-									    	<div class="accordion-title" data-tab="item4">
-									      		<h2>Chapter-4 <i class="fas fa-chevron-down"></i></h2>
-									    	</div>
-									    	<div class="accordion-content" id="item4">
-									      
-									    	</div>
-									  	</div>
-
-									  	<div class="accordion-item">
-									    	<div class="accordion-title" data-tab="item5">
-									      		<h2>Chapter-5 <i class="fas fa-chevron-down"></i></h2>
-									    	</div>
-									    	<div class="accordion-content" id="item5">
-									      
-									    	</div>
-									  	</div>
-
-									  	<div class="accordion-item">
-									    	<div class="accordion-title" data-tab="item6">
-									      		<h2>Chapter-6 <i class="fas fa-chevron-down"></i></h2>
-									    	</div>
-									    	<div class="accordion-content" id="item6">
-									      
-									    	</div>
-									  	</div>
-
-									  
-
-									      
-									    
-									</div>
-
-								    <li><a href="#" class="btn btn-lg btn-primary">Generate PDF</a></li>
-								  </ul>
-								</div>
-							</div>
-						</div>
-					</div>
-					
-				</div>
-			</div>
-		</div>
-	</div>
+<%-- This creates the section containing the dummy books of the page --%>
+	<%@ include file = "structure.jsp" %>
 
 	<div id="fh5co-services" class="fh5co-bg-section">
 		<div class="container">
@@ -257,7 +150,7 @@
 			</div>
 		</div>
 	</div>
-	
+
 	<!-- <div id="fh5co-project">
 		<div class="container">
 			<div class="row animate-box">
@@ -383,7 +276,7 @@
 			<div class="row copyright">
 				<div class="col-md-12 text-center">
 					<p>
-						<small class="block">&copy; 2016 Free HTML5. All Rights Reserved.</small> 
+						<small class="block">&copy; 2016 Free HTML5. All Rights Reserved.</small>
 						<small class="block">Designed by <a href="http://freehtml5.co/" target="_blank">FreeHTML5.co</a> Demo Images: <a href="http://unsplash.com/" target="_blank">Unsplash</a></small>
 					</p>
 					<p>
@@ -404,7 +297,7 @@
 	<div class="gototop js-top">
 		<a href="#" class="js-gotop"><i class="icon-arrow-up"></i></a>
 	</div>
-	
+
 	<!-- jQuery -->
 	<script src="js/jquery.min.js"></script>
 	<!-- jQuery Easing -->
@@ -418,4 +311,3 @@
 
 	</body>
 </html>
-
