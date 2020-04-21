@@ -15,6 +15,7 @@
    }
 %>
 
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css" rel="stylesheet">
 <div id="fh5co-core-feature">
   <div class="container">
     <div class="row">
@@ -27,7 +28,8 @@
             <div class="desc">
               <div class="columns">
                 <ul class="price">
-                  <li class="header">Chapters</li>
+                  <li class="header">Chapters
+                  <button id="btnAdd" type="button" class="btn btn-add" data-toggle="tooltip" data-original-title="Add more controls"><i class="glyphicon glyphicon-plus-sign"></i>&nbsp; Add&nbsp;</button></li>
                   <!-- <li>Chapter-1</li>
                   <li>Chapter-2</li>
                   <li>Chapter-3</li>
@@ -43,7 +45,10 @@
                   for(int i = 0; i < chapters.size(); i++) {%>
                     <div class="accordion-item">
                       <div class="accordion-title" data-tab="item1">
-                          <h2><%out.print(chapters.get(i));%> <i class="fas fa-chevron-down"></i></h2>
+                          <h2><%out.print(chapters.get(i));%>
+                            <button type="button" class="btn btn-danger remove"><i class="glyphicon glyphicon-remove-sign"></i></button>
+                          </h2>
+
                       </div>
                       <div class="accordion-content" id="item1">
                         <%
@@ -53,7 +58,7 @@
                           <div class="accordions">
                           <div class="accordion-item">
                             <div class="accordion-title" data-tab="item11">
-                                <h2><%out.print(sections.get(j));%><i class="fas fa-chevron-down"></i></h2>
+                                <h2><%out.print(sections.get(j));%></h2>
                             </div>
                             <div class="accordion-content" id="item11">
 

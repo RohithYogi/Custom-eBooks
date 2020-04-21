@@ -1386,6 +1386,59 @@ h1, h2, h3, h4, h5, h6, figure {
   color: #fff;
 }
 
+
+
+.btn.btn-add {
+  background: #0C9CEE;
+  margin-right: -30%!important;
+  margin-left: 10%;
+  color: #fff;
+  border: 2px solid #0C9CEE;
+  border-radius: 100px !important;
+}
+.btn-add:hover, .btn-add:focus, .btn-add:active {
+  background: #20a7f4 !important;
+  border-color: #20a7f4 !important;
+}
+.btn-add.btn-outline {
+  background: transparent;
+  color: #0C9CEE;
+  border: 2px solid #0C9CEE;
+}
+.btn-add.btn-outline:hover, .btn-add.btn-outline:focus, .btn-add.btn-outline:active {
+  background: #0C9CEE;
+  color: #fff;
+}
+
+
+
+.btn.btn-danger {
+  background: #0C9CEE;
+  color: #fff;
+  border: 2px solid #0C9CEE;
+  padding: 1px 5px !important;
+  border-radius: 100px !important;
+}
+.btn-add:hover, .btn-add:focus, .btn-add:active {
+  background: #20a7f4 !important;
+  border-color: #20a7f4 !important;
+}
+.btn-add.btn-outline {
+  background: transparent;
+  color: #0C9CEE;
+  border: 2px solid #0C9CEE;
+}
+.btn-add.btn-outline:hover, .btn-add.btn-outline:focus, .btn-add.btn-outline:active {
+  background: #0C9CEE;
+  color: #fff;
+}
+
+.glyphicon {
+    line-height: 1.1 !important;
+  }
+
+
+
 .btn-success {
   background: #5cb85c;
   color: #fff;
