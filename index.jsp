@@ -5,23 +5,7 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<title>Custom eBooks</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta name="description" content="Free HTML5 Website Template by gettemplates.co" />
-	<meta name="keywords" content="free website templates, free html5, free template, free bootstrap, free website template, html5, css3, mobile first, responsive" />
-	<meta name="author" content="gettemplates.co" />
-
-	<!--
-	//////////////////////////////////////////////////////
-
-	FREE HTML5 TEMPLATE
-	DESIGNED & DEVELOPED by FreeHTML5.co
-
-	Website: 		http://freehtml5.co/
-	Email: 			info@freehtml5.co
-	Twitter: 		http://twitter.com/fh5co
-	Facebook: 		https://www.facebook.com/fh5co
-
-	//////////////////////////////////////////////////////
-	 -->
+	<link rel="icon" href="images/myicon.ico" type="image/x-icon"/>
 
   	<!-- Facebook and Twitter integration -->
 	<meta property="og:title" content=""/>
@@ -62,11 +46,11 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-xs-2">
-					<div id="fh5co-logo"><a href="html/index.html">Custom-eBooks.</a></div>
+					<div id="fh5co-logo"><a href="index.jsp">Custom-eBooks.</a></div>
 				</div>
 				<div class="col-xs-10 text-right menu-1">
 					<ul>
-						<li class="active"><a href="html/index.html">Home</a></li>
+						<li class="active"><a href="index.jsp">Home</a></li>
 						<li><a href="html/about.html">About</a></li>
 						<li><a href="html/work.html">eBooks</a></li>
 						<li class="has-dropdown">
