@@ -110,7 +110,7 @@
 							<i class="icon-eye"></i>
 						</span>
 						<h3>Retina Ready</h3>
-						<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove</p>
+						<p>All the ebooks are available for reading in form of pdfs so that the user will be able to select from the lot for their own ebook</p>
 					</div>
 				</div>
 				<div class="col-md-4 col-sm-4 text-center">
@@ -119,7 +119,7 @@
 							<i class="icon-command"></i>
 						</span>
 						<h3>Fully Responsive</h3>
-						<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove</p>
+						<p>User friendly interface with fully responsive add and remove buttons for the users to define the structure for their ebook</p>
 					</div>
 				</div>
 				<div class="col-md-4 col-sm-4 text-center">
@@ -127,8 +127,8 @@
 						<span class="icon">
 							<i class="icon-power"></i>
 						</span>
-						<h3>Web Starter</h3>
-						<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove</p>
+						<h3>Secure Web</h3>
+						<p>Users data is well protected as they can securely login through email and password and resume their work on the ebook</p>
 					</div>
 				</div>
 			</div>
@@ -203,7 +203,7 @@
 			<div class="row animate-box">
 				<div class="col-md-8 col-md-offset-2 text-center fh5co-heading">
 					<h2>Lets Get Started</h2>
-					<p>Dignissimos asperiores vitae velit veniam totam fuga molestias accusamus alias autem provident. Odit ab aliquam dolor eius.</p>
+					<p>This application lets you create an ebook having chapters and sections with your say in it. Enjoy the user friendly interface for customizing your ebook</p>
 				</div>
 			</div>
 			<div class="row animate-box">

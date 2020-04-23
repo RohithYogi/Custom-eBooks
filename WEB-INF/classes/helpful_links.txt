@@ -1,0 +1,4 @@
+https://xmlgraphics.apache.org/fop/quickstartguide.html
+https://xmlgraphics.apache.org/fop/0.95/embedding.html
+https://xmlgraphics.apache.org/fop/download.html
+https://netjs.blogspot.com/2015/07/how-to-create-pdf-from-xml-using-apache-fop.html
