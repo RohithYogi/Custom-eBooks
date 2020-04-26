@@ -29,7 +29,8 @@
               <div class="columns">
                 <ul class="price">
                   <li class="header">Chapters
-                  <button id="btnAdd" type="button" class="btn btn-add" data-toggle="tooltip" data-original-title="Add more controls"><i class="glyphicon glyphicon-plus-sign"></i>&nbsp; Add&nbsp;</button></li>
+                  <a href="./jsp/search.jsp">
+                  <button id="btnAdd" type="button" class="btn btn-add" data-toggle="tooltip" data-original-title="Add more controls"><i class="glyphicon glyphicon-plus-sign"></i>&nbsp; Add&nbsp;</button></a></li>
                   <!-- <li>Chapter-1</li>
                   <li>Chapter-2</li>
                   <li>Chapter-3</li>

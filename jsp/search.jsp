@@ -4,12 +4,14 @@
 <%
     XMLExist_1 ex;
      // Check if this is new comer on your Webpage.
-     if (session.isNew() ){
+     if (session.isNew()){
         ex = new XMLExist_1();
         session.setAttribute("ex", ex);
      }
      else {
-       ex = (XMLExist_1)session.getAttribute("ex");
+       ex = new XMLExist_1();
+       session.setAttribute("ex", ex);
+       // ex = (XMLExist_1)session.getAttribute("ex");
      }
 
 
@@ -35,8 +37,6 @@
       NoOfChapters =chapter_doms.size();
 
     Map<Integer,String> chapternameIndexs = ex.returnChapterNames(chapter_doms);
-
-
 %>
 
 
@@ -94,7 +94,7 @@
               "AddBookServelt",
               {name : chap_id}, //meaasge you want to send
               function(result) {
-              $('#somediv').html('Here is your result : <strong>' + result + '</strong>'); //message you want to show
+              // $('#somediv').html('Here is your result : <strong>' + result + '</strong>'); //message you want to show
           });
       };
 
@@ -162,7 +162,7 @@
   					<div class="project-grid" style="background-image:url(../images/bk-1.png);">
   						<div class="desc">
   							<span>Application</span>
-                <h3><a href="#"><%=chapternameIndexs.get(i)%></a></h3>
+                <h3><a href="./../index.jsp"><%=chapternameIndexs.get(i)%></a></h3>
 
   							<%-- <h3><a href="#">hai</a></h3> --%>
               </div>

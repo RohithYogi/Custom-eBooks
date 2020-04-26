@@ -36,6 +36,7 @@ public class AddBookServelt extends HttpServlet {
     CustomEbookBuilder cb = (CustomEbookBuilder)session.getAttribute("cb");
 
     Element chapter = ex.ChapterAtIndex( Integer.parseInt(id));
+
     cb.addChapter(chapter);
 
     session.setAttribute("cb",cb);
