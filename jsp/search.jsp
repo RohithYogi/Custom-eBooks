@@ -1,4 +1,4 @@
-<%@ page import="com.ebooks.XMLExist_1, java.util.*, java.util.List, org.w3c.dom.Document" %>
+<%@ page import="com.ebooks.XMLExist_1, java.util.*,java.util.Map ,java.util.List, org.w3c.dom.Document" %>
 
 
 <%
@@ -15,13 +15,14 @@
 
 	String recevied_keywords;
 	if(request.getParameter("keywords") == null)
-		recevied_keywords = "";
+		recevied_keywords = "base";
 	else
 		recevied_keywords = request.getParameter("keywords");
 
     List<String> keys = new ArrayList<String>();
 
     String[] tmp = recevied_keywords.split(" ");
+
     for (int i=0; i < tmp.length; i++){
       keys.add(tmp[i]);
     }
@@ -33,9 +34,11 @@
     if(chapter_doms.size()!=0)
       NoOfChapters =chapter_doms.size();
 
-    Map<Integer,String> chapternameIndexs=ex.returnChapterNames(chapter_doms);
+    Map<Integer,String> chapternameIndexs = ex.returnChapterNames(chapter_doms);
+
 
 %>
+
 
   <!DOCTYPE HTML>
   <html>
@@ -75,9 +78,30 @@
   	<script src="js/respond.min.js"></script>
   	<![endif]-->
 
-  	</head>
-  	<body>
 
+     <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <script>
+      $(document).ready(function() {
+          $(".bookblock").click(function() {
+              var chap_id = $(this).attr("id");
+              servletCall(chap_id);
+
+          });
+      });
+      function servletCall(chap_id) {
+        // console.log(chap_id);
+          $.post(
+              "AddBookServlet",
+              {name : chap_id}, //meaasge you want to send
+              function(result) {
+              $('#somediv').html('Here is your result : <strong>' + result + '</strong>'); //message you want to show
+          });
+      };
+
+  </script>
+
+    </head>
+  	<body>
   	<div class="fh5co-loader"></div>
 
   	<div id="page">
@@ -133,18 +157,20 @@
   		<div class="container">
   			<div class="row">
           <% for(int i = 0; i < NoOfChapters; i+=1) { %>
-  				<div class="col-md-4 animate-box">
+          <div class="col-md-4 animate-box bookblock" id = "<%= i %>" >
+          <%-- <div class="col-md-4 animate-box"> --%>
   					<div class="project-grid" style="background-image:url(../images/bk-1.png);">
   						<div class="desc">
   							<span>Application</span>
-  							<h3><a href="#"><%=chapternameIndexs.get(i)%></a></h3>
+                <h3><a href="#"><%=chapternameIndexs.get(i)%></a></h3>
+
+  							<%-- <h3><a href="#">hai</a></h3> --%>
               </div>
   					</div>
   				</div>
         <% } %>
   			</div>
   		</div>
-
   	</div>
 
 

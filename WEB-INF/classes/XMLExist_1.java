@@ -52,7 +52,7 @@ public class XMLExist_1 {
        protected static String URI = "xmldb:exist://localhost:8081/exist/xmlrpc";
        protected static String collectionPath = "/db/Testing";
        protected static String DRIVER = "org.exist.xmldb.DatabaseImpl";
-
+       protected static List<Document> storing = new ArrayList<Document>();
 
        public XMLExist_1(){}
 
@@ -252,6 +252,9 @@ public class XMLExist_1 {
 
     public static Map<Integer,String> returnChapterNames(List<Document>chapter_doms){
 
+          storing.clear();
+          storing.addAll(chapter_doms);
+
           Map<Integer,String> nameIndexs = new HashMap<Integer,String>();
 
           for(int i = 0; i < chapter_doms.size(); i+=1) {
@@ -260,6 +263,13 @@ public class XMLExist_1 {
 
           return nameIndexs;
         }
+
+    public static Element ChapterAtIndex(int id){
+      Element new_cha_dom = storing.get(id).getDocumentElement();
+      return new_cha_dom;
+
+    }
+
 
 
     public static void main(String[] args) throws Exception {
