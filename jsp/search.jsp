@@ -91,7 +91,7 @@
       function servletCall(chap_id) {
         // console.log(chap_id);
           $.post(
-              "AddBookServlet",
+              "AddBookServelt",
               {name : chap_id}, //meaasge you want to send
               function(result) {
               $('#somediv').html('Here is your result : <strong>' + result + '</strong>'); //message you want to show
