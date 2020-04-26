@@ -250,6 +250,17 @@ public class XMLExist_1 {
             return sections_doms;
           }
 
+    public static Map<Integer,String> returnChapterNames(List<Document>chapter_doms){
+
+          Map<Integer,String> nameIndexs = new HashMap<Integer,String>();
+
+          for(int i = 0; i < chapter_doms.size(); i+=1) {
+            nameIndexs.put(i,chapter_doms.get(i).getElementsByTagName("name").item(0).getTextContent());
+          }
+
+          return nameIndexs;
+        }
+
 
     public static void main(String[] args) throws Exception {
 

@@ -33,6 +33,7 @@
     if(chapter_doms.size()!=0)
       NoOfChapters =chapter_doms.size();
 
+    Map<Integer,String> chapternameIndexs=ex.returnChapterNames(chapter_doms);
 
 %>
 
@@ -136,8 +137,7 @@
   					<div class="project-grid" style="background-image:url(../images/bk-1.png);">
   						<div class="desc">
   							<span>Application</span>
-  							<h3><a href="#"><%=chapter_doms.get(i).getElementsByTagName("name").item(0).getTextContent()%></a></h3>
-
+  							<h3><a href="#"><%=chapternameIndexs.get(i)%></a></h3>
               </div>
   					</div>
   				</div>
