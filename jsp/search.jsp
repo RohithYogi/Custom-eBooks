@@ -129,10 +129,10 @@
   	</header>
 
 
-    <% for(int i = 0; i < NoOfChapters; i+=1) { %>
      <div id="fh5co-project">
   		<div class="container">
   			<div class="row">
+          <% for(int i = 0; i < NoOfChapters; i+=1) { %>
   				<div class="col-md-4 animate-box">
   					<div class="project-grid" style="background-image:url(../images/bk-1.png);">
   						<div class="desc">
@@ -141,12 +141,10 @@
               </div>
   					</div>
   				</div>
-        <%-- <tr>
-            <h1><%=chapter_doms.get(i).getElementsByTagName("name").item(0).getTextContent()%></h1>
-        </tr> --%>
-    <% } %>
+        <% } %>
   			</div>
   		</div>
+
   	</div>
 
 
