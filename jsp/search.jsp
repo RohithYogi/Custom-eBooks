@@ -3,40 +3,39 @@
 
 <%
     XMLExist_1 ex;
-     // Check if this is new comer on your Webpage.
-     if (session.isNew()){
-        ex = new XMLExist_1();
-        session.setAttribute("ex", ex);
-     }
-     else {
+
+    if (session.isNew() ){
        ex = new XMLExist_1();
        session.setAttribute("ex", ex);
-       // ex = (XMLExist_1)session.getAttribute("ex");
-     }
-
-
-	String recevied_keywords;
-	if(request.getParameter("keywords") == null)
-		recevied_keywords = "base";
-	else
-		recevied_keywords = request.getParameter("keywords");
-
-    List<String> keys = new ArrayList<String>();
-
-    String[] tmp = recevied_keywords.split(" ");
-
-    for (int i=0; i < tmp.length; i++){
-      keys.add(tmp[i]);
+    }
+    else {
+      ex = (XMLExist_1)session.getAttribute("ex");
     }
 
+  	String recevied_keywords;
+  	if(request.getParameter("keywords") == null)
+  		recevied_keywords = "base";
+  	else
+  		recevied_keywords = request.getParameter("keywords");
 
-    List<Document> chapter_doms =  new ArrayList<Document>();
-    chapter_doms.addAll(ex.searchByChapter(keys));
-    int NoOfChapters = 0;
-    if(chapter_doms.size()!=0)
-      NoOfChapters =chapter_doms.size();
+      List<String> keys = new ArrayList<String>();
 
-    Map<Integer,String> chapternameIndexs = ex.returnChapterNames(chapter_doms);
+      String[] tmp = recevied_keywords.split(" ");
+
+      for (int i=0; i < tmp.length; i++){
+        keys.add(tmp[i]);
+      }
+
+
+      List<Document> chapter_doms =  new ArrayList<Document>();
+      List<Document> ret = ex.searchByChapter(keys);
+      chapter_doms.addAll(ret);
+      int NoOfChapters = 0;
+      if(chapter_doms.size()!=0)
+        NoOfChapters =chapter_doms.size();
+
+      Map<Integer,String> chapternameIndexs = ex.returnChapterNames(chapter_doms);
+
 %>
 
 
@@ -94,6 +93,7 @@
               "AddBookServelt",
               {name : chap_id}, //meaasge you want to send
               function(result) {
+                console.log(result);
               // $('#somediv').html('Here is your result : <strong>' + result + '</strong>'); //message you want to show
           });
       };
@@ -162,7 +162,7 @@
   					<div class="project-grid" style="background-image:url(../images/bk-1.png);">
   						<div class="desc">
   							<span>Application</span>
-                <h3><a href="./../index.jsp"><%=chapternameIndexs.get(i)%></a></h3>
+                <h3><%=chapternameIndexs.get(i)%></h3>
 
   							<%-- <h3><a href="#">hai</a></h3> --%>
               </div>

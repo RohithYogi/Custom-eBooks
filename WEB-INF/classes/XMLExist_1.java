@@ -50,7 +50,7 @@ public class XMLExist_1 {
        // DatabaseImpl asma = new DatabaseImpl();
 
        protected static String URI = "xmldb:exist://localhost:8081/exist/xmlrpc";
-       protected static String collectionPath = "/db/Testing";
+       protected static String collectionPath = "/db/testing";
        protected static String DRIVER = "org.exist.xmldb.DatabaseImpl";
        protected static List<Document> storing = new ArrayList<Document>();
 
@@ -93,7 +93,7 @@ public class XMLExist_1 {
       			List<String> books_xmls= new ArrayList<String>();
 
     			  for (int i=0;i<Keywords.size();i++){
-    	        String xQuery = "let $books := collection(\"xmldb:exist:///db/Testing\") for $book in $books for $name in $book/book/keywords where contains($name,\'"+Keywords.get(i)+"\') return $book";
+    	        String xQuery = "let $books := collection(\"xmldb:exist:///db/testing\") for $book in $books for $name in $book/book/keywords where contains($name,\'"+Keywords.get(i)+"\') return $book";
                 // System.out.println(namspac+xQuery);
 
     	           XPathQueryService xpqs = (XPathQueryService)col.getService("XPathQueryService", "1.0");
@@ -138,11 +138,11 @@ public class XMLExist_1 {
 
          for (int i=0;i<Keywords.size();i++){
 
-               String xQuery_1 = "let $books := collection(\"xmldb:exist:///db/Testing\") for $book in $books for $name in $book/book/chapters/chapter for$cha in  $name/keywords where contains($name,\'"+Keywords.get(i)+"\') return $name";
+               String xQuery_1 = "let $books := collection(\"xmldb:exist:///db/testing\") for $book in $books for $name in $book/book/chapters/chapter for$cha in  $name/keywords where contains($name,\'"+Keywords.get(i)+"\') return $name";
                // System.out.println(namspac+xQuery);
-               String xQuery_2 = "let $books := collection(\"xmldb:exist:///db/Testing\") for $book in $books for $name in $book/book/keywords where contains($name,\'"+Keywords.get(i)+"\') return $book//chapter";
+               String xQuery_2 = "let $books := collection(\"xmldb:exist:///db/testing\") for $book in $books for $name in $book/book/keywords where contains($name,\'"+Keywords.get(i)+"\') return $book//chapter";
 
-               // let $books := collection("xmldb:exist:///db/Testing") for $book in $books for $name in $book/book/keywords where contains($name,'db') return $book//chapter
+               // let $books := collection("xmldb:exist:///db/testing") for $book in $books for $name in $book/book/keywords where contains($name,'db') return $book//chapter
 
                 XPathQueryService xpqs = (XPathQueryService)col.getService("XPathQueryService", "1.0");
                   xpqs.setProperty("indent", "yes");
@@ -202,12 +202,12 @@ public class XMLExist_1 {
 
               for (int i=0;i<Keywords.size();i++){
 
-                  String xQuery_1 = "let $books := collection(\"xmldb:exist:///db/Testing\") for $book in $books for $sec in $book/book/chapters/chapter/sections/section for $key in  $sec/keywords where contains($key,\'"+Keywords.get(i)+"\') return $sec";
+                  String xQuery_1 = "let $books := collection(\"xmldb:exist:///db/testing\") for $book in $books for $sec in $book/book/chapters/chapter/sections/section for $key in  $sec/keywords where contains($key,\'"+Keywords.get(i)+"\') return $sec";
 
 
-                  String xQuery_2 = "let $books := collection(\"xmldb:exist:///db/Testing\") for $book in $books for $name in $book/book/chapters/chapter for$cha in  $name/keywords where contains($name,\'"+Keywords.get(i)+"\') return $name/sections/section";
+                  String xQuery_2 = "let $books := collection(\"xmldb:exist:///db/testing\") for $book in $books for $name in $book/book/chapters/chapter for$cha in  $name/keywords where contains($name,\'"+Keywords.get(i)+"\') return $name/sections/section";
                     // System.out.println(namspac+xQuery);
-                    String xQuery_3 = "let $books := collection(\"xmldb:exist:///db/Testing\") for $book in $books for $name in $book/book/keywords where contains($name,\'"+Keywords.get(i)+"\') return $book//section";
+                    String xQuery_3 = "let $books := collection(\"xmldb:exist:///db/testing\") for $book in $books for $name in $book/book/keywords where contains($name,\'"+Keywords.get(i)+"\') return $book//section";
 
 
                      XPathQueryService xpqs = (XPathQueryService)col.getService("XPathQueryService", "1.0");
@@ -276,31 +276,31 @@ public class XMLExist_1 {
 
       System.out.println("Hai");
 
-  //     CustomEbookBuilder cb = new CustomEbookBuilder("Database Systems");
-  //
-  //
-  //
-  //     List<String> keys = new ArrayList<String>();
-  //
-  //     keys.add("maths");
-  //     // keys.add("dbch1");
-  //     keys.add("data");
-  //
-  //     List<Document> final_results = searchByChapter(keys);
-  //
-  //
-  //     keys.clear();
-  //     keys.add("dbch2sec1");
-  //     List<Document> final_results_1 = searchBySection(keys);
-  //
-  //
-  //     Element ch1 = (Element) final_results.get(0).getDocumentElement();
-  //     Element ch2 = (Element) final_results.get(1).getDocumentElement();
-  //     Element sec1 = (Element) final_results_1.get(0).getDocumentElement();
-  //
-  //     cb.addChapter(ch1);
-  //     cb.addSection(0,sec1);
-  //     cb.saveAsXML("test.xml");
-  //
+      CustomEbookBuilder cb = new CustomEbookBuilder("Database Systems");
+
+
+
+      List<String> keys = new ArrayList<String>();
+
+      keys.add("base");
+      // keys.add("dbch1");
+      // keys.add("data");
+
+      List<Document> final_results = searchByChapter(keys);
+
+
+      // keys.clear();
+      // keys.add("dbch2sec1");
+      // List<Document> final_results_1 = searchBySection(keys);
+      //
+
+      Element ch1 = (Element) final_results.get(0).getDocumentElement();
+      Element ch2 = (Element) final_results.get(1).getDocumentElement();
+      // Element sec1 = (Element) final_results_1.get(0).getDocumentElement();
+
+      cb.addChapter(ch1);
+      // cb.addSection(0,sec1);
+      cb.saveAsXML("test.xml");
+
   }
 }

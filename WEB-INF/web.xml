@@ -12,6 +12,6 @@
 
 <servlet-mapping>
    <servlet-name>AddBookServelt</servlet-name>
-   <url-pattern>/AddBookServelt</url-pattern>
+   <url-pattern>/jsp/AddBookServelt</url-pattern>
 </servlet-mapping>
 </web-app>
