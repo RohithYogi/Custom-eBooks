@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?><book xmlns="https://www.custom-ebooks.com/database-schema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://www.custom-ebooks.com/database-schema custom_ebooks_schema.xsd">
+<name>Database Systems</name>
+<chapters>
+<chapter>
+<name>Introduction</name>
+<chapter_id/>
+<sections>
+<section xmlns="https://www.custom-ebooks.com/database-schema">
+              <name>section 1</name>
+              <section_id>SEC1</section_id>
+              <keywords>dbch2sec1</keywords>
+              <storage_path>TODO</storage_path>
+            </section>
+</sections>
+</chapter>
+<chapter>
+<name>Transaction management</name>
+<chapter_id/>
+<sections/>
+</chapter>
+<chapter xmlns="https://www.custom-ebooks.com/database-schema">
+            <name>Chapter 1</name>
+            <chapter_id>CH1</chapter_id>
+            <keywords>dbch1 ch1</keywords>
+            <sections>
+                <section>
+                  <name>section 1</name>
+                  <section_id>SEC1</section_id>
+                  <storage_path>TODO</storage_path>
+                </section>
+
+                <section>
+                  <name>section 2</name>
+                  <section_id>SEC2</section_id>
+                  <storage_path>TODO</storage_path>
+                </section>
+            </sections>
+          </chapter>
+</chapters>
+</book>
