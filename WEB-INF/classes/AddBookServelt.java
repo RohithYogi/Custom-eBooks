@@ -30,12 +30,12 @@ public class AddBookServelt extends HttpServlet {
 
   public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
     String id = request.getParameter("name");
-    // PrintWriter out = response.getWriter();
+    PrintWriter out = response.getWriter();
     HttpSession session = request.getSession();
     XMLExist_1 ex = (XMLExist_1)session.getAttribute("ex");
     CustomEbookBuilder cb = (CustomEbookBuilder)session.getAttribute("cb");
 
-    Element chapter = ex.ChapterAtIndex( Integer.parseInt(id));
+    Element chapter = ex.ChapterAtIndex(Integer.parseInt(id));
 
     cb.addChapter(chapter);
 

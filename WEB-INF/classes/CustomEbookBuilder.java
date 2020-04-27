@@ -137,7 +137,8 @@ public class CustomEbookBuilder {
     ArrayList<String> res = new ArrayList<String>();
     NodeList nl = book.getElementsByTagName("chapter");
     for(int i = 0; i < nl.getLength(); i++){
-      res.add(nl.item(i).getFirstChild().getTextContent());
+      Element cha = (Element) nl.item(i);
+      res.add(cha.getElementsByTagName("name").item(0).getTextContent());
     }
     return res;
   }
@@ -146,7 +147,8 @@ public class CustomEbookBuilder {
     ArrayList<String> res = new ArrayList<String>();
     NodeList nl = chaptersList.get(chapter_id).getElementsByTagName("section");
     for(int i = 0; i < nl.getLength(); i++){
-      res.add(nl.item(i).getFirstChild().getTextContent());
+      Element sec = (Element) nl.item(i);
+      res.add(sec.getElementsByTagName("name").item(0).getTextContent());
     }
     return res;
   }
