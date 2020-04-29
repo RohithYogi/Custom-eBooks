@@ -1,32 +1,38 @@
-import com.itextpdf.text.Document;
-import com.itextpdf.text.pdf.PdfContentByte;
-import com.itextpdf.text.pdf.PdfImportedPage;
-import com.itextpdf.text.pdf.PdfReader;
-import com.itextpdf.text.pdf.PdfWriter;
-
-
 import java.util.*;
 import java.io.OutputStream;
 import java.io.InputStream;
 import java.io.FileInputStream;
 import java.io.FileOutputStream; 
 
+import com.itextpdf.text.Document;
+import com.itextpdf.text.pdf.PdfContentByte;
+import com.itextpdf.text.pdf.PdfImportedPage;
+import com.itextpdf.text.pdf.PdfReader;
+import com.itextpdf.text.pdf.PdfWriter;
+
+import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.parsers.DocumentBuilder;
+import org.w3c.dom.*;
+import java.io.File;
+
 /**
- * This class is used to merge two or more 
- * existing pdf file using iText jar.
+ * This class is used to merge two or more existing pdfs.
+ To RUN : 
+    javac -cp './jars/*:.' PDFMerger.java
+    java -cp './jars/*:.' PDFMerger
  */
 public class PDFMerger {
 
     static void mergePdfFiles(List<InputStream> inputPdfList,OutputStream outputStream) throws Exception{
         //Create document and pdfReader objects.
-        Document document = new Document();
+        com.itextpdf.text.Document document = new com.itextpdf.text.Document();
         List<PdfReader> readers = new ArrayList<PdfReader>();
         int totalPages = 0;
 
-        //Create pdf Iterator object using inputPdfList.
+        //Iterator object using inputPdfList.
         Iterator<InputStream> pdfIterator = inputPdfList.iterator();
 
-        // Create reader list for the input pdf files.
+        // reader list for the input
         while (pdfIterator.hasNext()) {
                 InputStream pdf = pdfIterator.next();
                 PdfReader pdfReader = new PdfReader(pdf);
@@ -34,13 +40,13 @@ public class PDFMerger {
                 totalPages = totalPages + pdfReader.getNumberOfPages();
         }
 
-        // Create writer for the outputStream
+        //writer for the outputStream
         PdfWriter writer = PdfWriter.getInstance(document, outputStream);
 
-        //Open document.
+        //Open doc.
         document.open();
 
-        //Contain the pdf data.
+        //pdf data.
         PdfContentByte pageContentByte = writer.getDirectContent();
 
         PdfImportedPage pdfImportedPage;
@@ -61,7 +67,7 @@ public class PDFMerger {
                 currentPdfReaderPage = 1;
         }
 
-        //Close document and outputStream.
+        //Close document
         outputStream.flush();
         document.close();
         outputStream.close();
@@ -69,22 +75,56 @@ public class PDFMerger {
         System.out.println("Pdf files merged successfully.");
     }
 
+    public static String merger(String filePath){
+        try{
+              //creating a constructor of file class and parsing an XML file
+              File file = new File(filePath);
+              //an instance of factory that gives a document builder
+              DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
+              //an instance of builder to parse the specified xml file
+              DocumentBuilder db = dbf.newDocumentBuilder();
+              org.w3c.dom.Document doc = db.parse(file);
+              doc.getDocumentElement().normalize();
+              System.out.println("Root element: " + doc.getDocumentElement().getNodeName());
+              List<InputStream> inputPdfList = new ArrayList<InputStream>();
+              NodeList nodeList = doc.getElementsByTagName("storage_path");
+              // nodeList is not iterable, so we are using for loop
+              for (int itr = 0; itr < nodeList.getLength(); itr++){
+                    Node node = nodeList.item(itr);
+                    System.out.println("\nNode Name :" + node.getNodeName());
+
+                    if (node.getNodeType() == Node.ELEMENT_NODE){
+                        Element eElement = (Element) node;
+                        System.out.println("Address: "+ eElement.getTextContent());
+                        inputPdfList.add(new FileInputStream(eElement.getTextContent()));
+                      }
+              }
+                //merged pdf file.
+                String output = "./../ebooks/generated.pdf";
+                OutputStream outputStream = new FileOutputStream("./../ebooks/generated.pdf");
+                //to merge pdf files.
+                mergePdfFiles(inputPdfList, outputStream);
+                return output;
+            }
+
+        catch (Exception e){
+              e.printStackTrace();
+              return "";
+          }
+    }
+
     public static void main(String args[]){
         try {
-            //Prepare input pdf file list as list of input stream.
-            List<InputStream> inputPdfList = new ArrayList<InputStream>();
-            inputPdfList.add(new FileInputStream("./../ebooks/at_your_age.pdf"));
-            inputPdfList.add(new FileInputStream("./../ebooks/can_such_things_be.pdf"));
-
-
-            //Prepare output stream for merged pdf file.
-            OutputStream outputStream = new FileOutputStream("./../ebooks/at_your_age_can_such_things_be.pdf");
-
-            //call method to merge pdf files.
-            mergePdfFiles(inputPdfList, outputStream);     
+            //list of input stream.
+            Scanner sc= new Scanner(System.in);
+            String filePath = sc.nextLine();
+            String path = merger(filePath);
+            System.out.println("Generated Book Address: "+ path);
+                 
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
-}
+  }
+
 
