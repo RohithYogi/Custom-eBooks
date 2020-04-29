@@ -18,6 +18,28 @@
 	<meta name="twitter:url" content="" />
 	<meta name="twitter:card" content="" />
 
+	<%
+		String type = null;
+		CustomEbookBuilder cb;
+		XMLExist_1 ex;
+	 // Check if this is new comer on your Webpage.
+	 if (session.isNew() ){
+			session.setAttribute("type", type);
+			cb = new CustomEbookBuilder("Database Systems");
+			session.setAttribute("cb", cb);
+			ex = new XMLExist_1();
+			session.setAttribute("ex", ex);
+	 }
+	 else {
+		 type = (String)session.getAttribute("type");
+		 cb = (CustomEbookBuilder)session.getAttribute("cb");
+		 ex = (XMLExist_1)session.getAttribute("ex");
+	 }
+
+
+	// Check if this is new comer on your Webpage.
+	%>
+
 	<!-- <link href='https://fonts.googleapis.com/css?family=Work+Sans:400,300,600,400italic,700' rel='stylesheet' type='text/css'> -->
 
 	<!-- Animate.css -->
@@ -73,33 +95,39 @@
 
 		</div>
 	</nav>
-
-	<header id="fh5co-header" class="fh5co-cover" role="banner" style="background-image:url(images/img_bg_2.jpg);">
-		<div class="overlay"></div>
-		<div class="container">
-			<div class="row">
-				<div class="col-md-8 col-md-offset-2 text-center">
-					<div class="display-t">
-						<div class="display-tc animate-box" data-animate-effect="fadeIn">
-							<div class="row">
-								<form class="form-inline" id="fh5co-header-subscribe">
-									<div class="col-md-8 col-md-offset-2">
-										<div class="form-group">
-											<input type="text" class="form-control" id="email" placeholder="Enter book name">
-											<button type="submit" class="btn btn-default">Search</button>
+	<%if(type == null){
+		response.sendRedirect("jsp/generic.jsp");
+	} else if (type.equals("consumer")){%>
+		<header id="fh5co-header" class="fh5co-cover" role="banner" style="background-image:url(images/img_bg_2.jpg);">
+			<div class="overlay"></div>
+			<div class="container">
+				<div class="row">
+					<div class="col-md-8 col-md-offset-2 text-center">
+						<div class="display-t">
+							<div class="display-tc animate-box" data-animate-effect="fadeIn">
+								<div class="row">
+									<form class="form-inline" id="fh5co-header-subscribe">
+										<div class="col-md-8 col-md-offset-2">
+											<div class="form-group">
+												<input type="text" class="form-control" id="email" placeholder="Enter book name">
+												<button type="submit" class="btn btn-default">Search</button>
+											</div>
 										</div>
-									</div>
-								</form>
+									</form>
+								</div>
 							</div>
 						</div>
 					</div>
 				</div>
 			</div>
-		</div>
-	</header>
+		</header>
 
-<%-- This creates the section containing the dummy books of the page --%>
-	<%@ include file = "jsp/structure.jsp" %>
+	<%-- This creates the section containing the dummy books of the page --%>
+		<%@ include file = "jsp/structure.jsp" %>
+		<%} else {%>
+			<h2>[Producer component will go here]<h2>
+		<%}%>
+
 
 	<div id="fh5co-services" class="fh5co-bg-section">
 		<div class="container">

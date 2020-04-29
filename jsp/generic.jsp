@@ -31,6 +31,8 @@
 
 	<!-- Modernizr JS -->
 	<script src="../js/modernizr-2.6.2.min.js"></script>
+	<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+	<script src="../js/userLogin.js"></script>
 	<!-- FOR IE9 below -->
 	<!--[if lt IE 9]>
 	<script src="js/respond.min.js"></script>
@@ -51,8 +53,8 @@
 				<div class="col-xs-10 text-right menu-1">
 					<ul>
 						<li class="active" ><a>Home</a></li>
-						<li><a href="about.html">About</a></li>
-						<li><a href="work.html">eBooks</a></li>
+						<li><a href="../html/about.html">About</a></li>
+						<li><a href="../html/work.html">eBooks</a></li>
 						<li class="has-dropdown">
 							<a href="../index.jsp">Try out?</a>
 						</li>
@@ -65,8 +67,8 @@
 								<li><a href="#">jQuery</a></li>
 							</ul>
 						</li> -->
-						<li><a href="contact.html">Contact</a></li>
-						<li class="btn-cta"><a href="login.html"><span>Login</span></a></li>
+						<li><a href="../html/contact.html">Contact</a></li>
+						<li class="btn-cta"><a href="../html/login.html"><span>Login</span></a></li>
 					</ul>
 				</div>
 			</div>
@@ -83,9 +85,9 @@
 						<div class="display-tc animate-box" data-animate-effect="fadeIn">
 							<h1>Custom-eBooks</h1>
 							<h2>This application lets you create an ebook having chapters and sections with your say in it</h2>
-							<div class="form-group">
-								<button type="submit" class="btn btn-default">Get Started</button>
-								<button type="submit" class="btn btn-default">Explore</button>
+							<div >
+								<a href="#"><button  type="submit" id="consumer" class="btn btn-default userLogin">I'm a consumer</button></a>
+								<a href="#"><button  type="submit" id="producer" class="btn btn-default userLogin">I'm a producer</button></a>
 							</div>
 						</div>
 					</div>

@@ -3,21 +3,6 @@
 
 <%
 
-    CustomEbookBuilder cb;
-    XMLExist_1 ex;
-
-
-   // Check if this is new comer on your Webpage.
-   if (session.isNew() ){
-      cb = new CustomEbookBuilder("Database Systems");
-      session.setAttribute("cb", cb);
-      ex = new XMLExist_1();
-      session.setAttribute("ex", ex);
-   }
-   else {
-     cb = (CustomEbookBuilder)session.getAttribute("cb");
-     ex = (XMLExist_1)session.getAttribute("ex");
-   }
 %>
 
 <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css" rel="stylesheet">

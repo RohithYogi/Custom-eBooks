@@ -14,4 +14,14 @@
    <servlet-name>AddBookServelt</servlet-name>
    <url-pattern>/jsp/AddBookServelt</url-pattern>
 </servlet-mapping>
+
+<servlet>
+   <servlet-name>UserLoginServlet</servlet-name>
+   <servlet-class>UserLoginServlet</servlet-class>
+</servlet>
+
+<servlet-mapping>
+   <servlet-name>UserLoginServlet</servlet-name>
+   <url-pattern>/jsp/UserLoginServlet</url-pattern>
+</servlet-mapping>
 </web-app>
