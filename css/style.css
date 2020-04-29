@@ -117,7 +117,7 @@
 
 
 body {
-  font-family: "Work Sans", Arial, sans-serif;
+  font-family: "Work Sans", Arial, sans-serif !important;
   font-weight: 400;
   font-size: 16px;
   line-height: 1.7;
@@ -213,7 +213,7 @@ h1, h2, h3, h4, h5, h6, figure {
 }
 .fh5co-nav a {
   padding: 5px 10px;
-  color: #fff;
+  color: #fff !important;
 }
 @media screen and (max-width: 768px) {
   .fh5co-nav .menu-1 {

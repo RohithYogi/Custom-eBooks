@@ -124,8 +124,31 @@
 
 	<%-- This creates the section containing the dummy books of the page --%>
 		<%@ include file = "jsp/structure.jsp" %>
-		<%} else {%>
-			<h2>[Producer component will go here]<h2>
+		<%} 
+		else {%>
+			<header id="fh5co-header" class="fh5co-cover" role="banner" style="background-image:url(images/img_bg_2.jpg);">
+			<div class="overlay"></div>
+			<div class="container">
+				<div class="row">
+					<div class="col-md-8 col-md-offset-2 text-center">
+						<div class="display-t">
+							<div class="display-tc animate-box" data-animate-effect="fadeIn">
+								<div class="row">
+									<form class="form-inline" id="fh5co-header-subscribe">
+										<div class="col-md-8 col-md-offset-2">
+											<div class="form-group">
+												<input type="text" class="form-control" id="email" placeholder="Enter book name">
+												<button type="submit" class="btn btn-default">Search</button>
+											</div>
+										</div>
+									</form>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</header>
 		<%}%>
 
 
