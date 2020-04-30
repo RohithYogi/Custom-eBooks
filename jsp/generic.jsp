@@ -67,7 +67,7 @@
 							</ul>
 						</li> -->
 						<li><a href="../html/contact.html">Contact</a></li>
-						<%-- <li class="btn-cta"><a href="../html/login.html"><span>Login</span></a></li> --%>
+						<li class="btn-cta"><a href="../html/login.html"><span>Login</span></a></li>
 					</ul>
 				</div>
 			</div>
@@ -86,18 +86,18 @@
 						<div class="display-tc animate-box" data-animate-effect="fadeIn">
 							<h1>Custom-eBooks</h1>
 							<h2>This application lets you create an ebook having chapters and sections with your say in it</h2>
+							<div >
+								<a href="#" style="border-bottom: 0px;"><button  type="submit" id="consumer" class="btn btn-default userLogin">I'm a customer</button></a>
+								<a href="#" style="border-bottom: 0px;"><button  type="submit" id="producer" class="btn btn-default userLogin">I'm a publisher</button></a>
+							</div>
 						</div>
-					</div>
-					<div class="row">
-						<a href="#" style="border-bottom: 0px;"><button  type="submit" id="consumer" class="btn btn-default btn-lg userLogin" style="background:#f35f55;">I'm a customer</button></a>
-						<a href="#" style="border-bottom: 0px;"><button  type="submit" id="producer" class="btn btn-default btn-lg userLogin" style="background:#f35f55">I'm a publisher</button></a>
 					</div>
 				</div>
 			</div>
 		</div>
 	</header>
 
-	<div id="fh5co-services" >
+	<div id="fh5co-services">
 		<div class="container">
 			<div class="col-md-6 col-sm-6 animate-box">
 				<div class="feature-center">
