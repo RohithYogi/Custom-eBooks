@@ -1,11 +1,11 @@
-// package Final_Scripts;
+package com.ebooks;
 
 // import Final_Scripts.CustomEbookBuilder;
 import org.xmldb.api.base.*;
 import org.xmldb.api.modules.*;
 import org.xmldb.api.*;
 import org.exist.xmldb.*;
-
+import org.exist.xmldb.DatabaseImpl;
 import org.exist.xmldb.EXistResource;
 
 
@@ -45,11 +45,16 @@ import org.w3c.dom.Document;
 import org.xml.sax.InputSource;
 
 
-public class XMLExist {
-       protected static String DRIVER = "org.exist.xmldb.DatabaseImpl";
+public class ExistSearchUtil {
+
+       // DatabaseImpl asma = new DatabaseImpl();
+
        protected static String URI = "xmldb:exist://localhost:8081/exist/xmlrpc";
        protected static String collectionPath = "/db/Testing";
+       protected static String DRIVER = "org.exist.xmldb.DatabaseImpl";
+       protected static List<Document> storing = new ArrayList<Document>();
 
+       public ExistSearchUtil(){}
 
 	      private static Document convertStringToXMLDocument(String xmlString){
            //Parser that produces DOM object trees from XML content
@@ -74,8 +79,8 @@ public class XMLExist {
        public static List<Document> searchByBook(List<String> Keywords) throws Exception{
 
            // initialize database driver
-           Class cl = Class.forName(DRIVER);
-           Database database = (Database) cl.newInstance();
+           // Class cl = Class.forName(DRIVER);
+           Database database = (Database) new DatabaseImpl();
            DatabaseManager.registerDatabase(database);
 
            // get the collection
@@ -118,8 +123,8 @@ public class XMLExist {
       public static List<Document> searchByChapter(List<String> Keywords) throws Exception{
 
           // initialize database driver
-          Class cl = Class.forName(DRIVER);
-          Database database = (Database) cl.newInstance();
+          // Class cl = Class.forName(DRIVER);
+          Database database = (Database) new DatabaseImpl();
           DatabaseManager.registerDatabase(database);
 
           // get the collection
@@ -133,19 +138,33 @@ public class XMLExist {
 
          for (int i=0;i<Keywords.size();i++){
 
-             String xQuery = "let $books := collection(\"xmldb:exist:///db/Testing\") for $book in $books for $name in $book/book/chapters/chapter for$cha in  $name/keywords where contains($name,\'"+Keywords.get(i)+"\') return $name";
+               String xQuery_1 = "let $books := collection(\"xmldb:exist:///db/Testing\") for $book in $books for $name in $book/book/chapters/chapter for$cha in  $name/keywords where contains($name,\'"+Keywords.get(i)+"\') return $name";
                // System.out.println(namspac+xQuery);
+               String xQuery_2 = "let $books := collection(\"xmldb:exist:///db/Testing\") for $book in $books for $name in $book/book/keywords where contains($name,\'"+Keywords.get(i)+"\') return $book//chapter";
+
+               // let $books := collection("xmldb:exist:///db/Testing") for $book in $books for $name in $book/book/keywords where contains($name,'db') return $book//chapter
 
                 XPathQueryService xpqs = (XPathQueryService)col.getService("XPathQueryService", "1.0");
                   xpqs.setProperty("indent", "yes");
 
-                  ResourceSet result = xpqs.query(namspac+xQuery);
+                  ResourceSet result = xpqs.query(namspac+xQuery_1);
                   ResourceIterator resitr = result.getIterator();
 
                   while (resitr.hasMoreResources()) {
                        Resource r = resitr.nextResource();
-                      chapters_xmls.add((String) r.getContent());
+                       chapters_xmls.add((String) r.getContent());
+                       // System.out.println((String) r.getContent());
                  }
+
+                 result = xpqs.query(namspac+xQuery_2);
+                 resitr = result.getIterator();
+
+                 while (resitr.hasMoreResources()) {
+                     Resource r = resitr.nextResource();
+                     chapters_xmls.add((String) r.getContent());
+                     // System.out.println((String) r.getContent());
+
+                }
          }
 
        Set<String> set = new HashSet<String>(chapters_xmls);
@@ -154,8 +173,6 @@ public class XMLExist {
 
        for(int k=0;k<chapters_xmls.size();k++)
                chapters_doms.add(convertStringToXMLDocument(chapters_xmls.get(k)));
-
-       chapters_doms.addAll(searchByBook(Keywords));
        return chapters_doms;
      }
 
@@ -164,8 +181,9 @@ public class XMLExist {
      public static List<Document> searchBySection(List<String> Keywords) throws Exception{
 
                // initialize database driver
-               Class cl = Class.forName(DRIVER);
-               Database database = (Database) cl.newInstance();
+               // Class cl = Class.forName(DRIVER;
+
+               Database database = (Database) new DatabaseImpl();
                DatabaseManager.registerDatabase(database);
 
                // get the collection
@@ -179,21 +197,42 @@ public class XMLExist {
 
               for (int i=0;i<Keywords.size();i++){
 
-                  String xQuery = "let $books := collection(\"xmldb:exist:///db/Testing\") for $book in $books for $sec in $book/book/chapters/chapter/sections/section for $key in  $sec/keywords where contains($key,\'"+Keywords.get(i)+"\') return $sec";
+                  String xQuery_1 = "let $books := collection(\"xmldb:exist:///db/Testing\") for $book in $books for $sec in $book/book/chapters/chapter/sections/section for $key in  $sec/keywords where contains($key,\'"+Keywords.get(i)+"\') return $sec";
+
+
+                  String xQuery_2 = "let $books := collection(\"xmldb:exist:///db/Testing\") for $book in $books for $name in $book/book/chapters/chapter for$cha in  $name/keywords where contains($name,\'"+Keywords.get(i)+"\') return $name/sections/section";
                     // System.out.println(namspac+xQuery);
+                    String xQuery_3 = "let $books := collection(\"xmldb:exist:///db/Testing\") for $book in $books for $name in $book/book/keywords where contains($name,\'"+Keywords.get(i)+"\') return $book//section";
+
 
                      XPathQueryService xpqs = (XPathQueryService)col.getService("XPathQueryService", "1.0");
                        xpqs.setProperty("indent", "yes");
 
-                       ResourceSet result = xpqs.query(namspac+xQuery);
+                       ResourceSet result = xpqs.query(namspac+xQuery_1);
                        ResourceIterator resitr = result.getIterator();
 
                        while (resitr.hasMoreResources()) {
                             Resource r = resitr.nextResource();
                            sections_xmls.add((String) r.getContent());
-                           // System.out.println((String) r.getContent());
                       }
+
+                      result = xpqs.query(namspac+xQuery_2);
+                      resitr = result.getIterator();
+
+                      while (resitr.hasMoreResources()) {
+                          Resource r = resitr.nextResource();
+                          sections_xmls.add((String) r.getContent());
+                     }
+                    result = xpqs.query(namspac+xQuery_3);
+                    resitr = result.getIterator();
+
+                     while (resitr.hasMoreResources()) {
+                          Resource r = resitr.nextResource();
+                         sections_xmls.add((String) r.getContent());
+                    }
+
               }
+
 
             Set<String> set = new HashSet<String>(sections_xmls);
             sections_xmls.clear();
@@ -202,14 +241,34 @@ public class XMLExist {
             for(int k=0;k<sections_xmls.size();k++)
                     sections_doms.add(convertStringToXMLDocument(sections_xmls.get(k)));
 
-            sections_doms.addAll(searchByChapter(Keywords));
-            sections_doms.addAll(searchByBook(Keywords));
+
             return sections_doms;
           }
+
+    public static List<String> returnChapterNames(List<Document>chapter_doms){
+          storing.clear();
+          storing.addAll(chapter_doms);
+
+          List<String> names= new ArrayList<String>();
+
+          for(int i = 0; i < chapter_doms.size(); i+=1) {
+            names.add(chapter_doms.get(i).getElementsByTagName("name").item(0).getTextContent());
+          }
+          return names;
+        }
+
+
+    public static Element ChapterAtIndex(int id){
+      Element new_cha_dom = storing.get(id).getDocumentElement();
+      return new_cha_dom;
+
+    }
+
 
 
     public static void main(String[] args) throws Exception {
 
+      System.out.println("Hai");
 
       CustomEbookBuilder cb = new CustomEbookBuilder("Database Systems");
 
@@ -218,32 +277,23 @@ public class XMLExist {
       List<String> keys = new ArrayList<String>();
 
       keys.add("base");
-      keys.add("data");
+      // keys.add("dbch1");
+      // keys.add("data");
+
       List<Document> final_results = searchByChapter(keys);
 
 
-      keys.clear();
-      keys.add("dbch2sec1");
-      List<Document> final_results_1 = searchBySection(keys);
+      // keys.clear();
+      // keys.add("dbch2sec1");
+      // List<Document> final_results_1 = searchBySection(keys);
+      //
 
-
-      // for(int i=0;i<final_results.size();i++){
-              // System.out.println(final_results.get(i).getFirstChild().getNodeName());
-      //  }
-
-       // System.out.println(final_results.size());
-
-       NodeList chapter_list1 = final_results.get(0).getElementsByTagName("chapter");
-       NodeList section_list1 = final_results_1.get(0).getElementsByTagName("section");
-
-
-      Element ch1 = (Element) chapter_list1.item(0);
-      Element ch2 = (Element) chapter_list1.item(1);
-      Element sec1 = (Element) section_list1.item(0);
-      // System.out.println(final_results_1.size());
+      Element ch1 = (Element) final_results.get(0).getDocumentElement();
+      Element ch2 = (Element) final_results.get(1).getDocumentElement();
+      // Element sec1 = (Element) final_results_1.get(0).getDocumentElement();
 
       cb.addChapter(ch1);
-      cb.addSection(0,sec1);
+      // cb.addSection(0,sec1);
       cb.saveAsXML("test.xml");
 
   }
