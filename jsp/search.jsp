@@ -1,40 +1,33 @@
-<%@ page import="com.ebooks.XMLExist_1, java.util.*,java.util.Map ,java.util.List, org.w3c.dom.Document" %>
+<%@ page import="com.ebooks.ExistSearchUtil, java.util.*,java.util.Map ,java.util.List, org.w3c.dom.Document" %>
 
 
 <%
-    XMLExist_1 ex;
+    ExistSearchUtil ex;
+    String recevied_keywords;
+    int NoOfChapters = 0;
 
     if (session.isNew() ){
-       ex = new XMLExist_1();
+       ex = new ExistSearchUtil();
        session.setAttribute("ex", ex);
     }
     else {
-      ex = (XMLExist_1)session.getAttribute("ex");
+      ex = (ExistSearchUtil)session.getAttribute("ex");
     }
 
-  	String recevied_keywords;
   	if(request.getParameter("keywords") == null)
   		recevied_keywords = " ";
   	else
   		recevied_keywords = request.getParameter("keywords");
 
-      List<String> keys = new ArrayList<String>();
 
-      String[] tmp = recevied_keywords.split(" ");
+      List<String> keys = Arrays.asList(recevied_keywords.split(" "));;
 
-      for (int i=0; i < tmp.length; i++){
-        keys.add(tmp[i]);
-      }
+      List<Document> chapter_doms = ex.searchByChapter(keys);
 
-
-      List<Document> chapter_doms =  new ArrayList<Document>();
-      List<Document> ret = ex.searchByChapter(keys);
-      chapter_doms.addAll(ret);
-      int NoOfChapters = 0;
       if(chapter_doms.size()!=0)
         NoOfChapters =chapter_doms.size();
 
-      Map<Integer,String> chapternameIndexs = ex.returnChapterNames(chapter_doms);
+    List<String> chapternameIndexs = ex.returnChapterNames(chapter_doms);
 
 %>
 
