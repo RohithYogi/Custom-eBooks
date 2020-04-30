@@ -149,6 +149,7 @@
 				</div>
 			</div>
 		</header>
+		<%@ include file = "jsp/publisher.jsp" %>
 		<%}%>
 
 
