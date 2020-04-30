@@ -48,7 +48,6 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-xs-2">
-					<img src="../images/whitebook.png" style="width:50%;margin-left:-40%;">
 				</div>
 				<div class="col-xs-10 text-right menu-1">
 					<ul>
@@ -77,7 +76,9 @@
 	</nav>
 
 	<header id="fh5co-header" class="fh5co-cover fh5co-cover-sm" role="banner" style="background-image:url(../images/img_bg_2.jpg);height: 50vh;">
-		<div class="overlay"></div>
+		<div class="overlay">
+			<img src="../images/whitebook.png" style="width: 40vh;margin-left: 2%;margin-top: 2%;">
+		</div>
 		<div class="container">
 			<div class="row">
 				<div class="col-md-10 col-md-offset-1 text-center">
