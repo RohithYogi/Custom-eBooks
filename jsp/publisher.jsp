@@ -31,27 +31,27 @@
                   <div class="accordions">
 
 
-                  <!-- <%
+                  <%
                   ArrayList<String> chapters = cb.getChapterNames();
                   for(int i = 0; i < chapters.size(); i++) {%>
                     <div class="accordion-item">
-                      <div class="accordion-title" data-tab="item1">
+                      <div class="accordion-title" data-tab="item<%=i+1%>">
                           <h2><%out.print(chapters.get(i));%>
                             <button type="button" class="btn btn-danger remove"><i class="glyphicon glyphicon-remove-sign"></i></button>
                           </h2>
 
                       </div>
-                      <div class="accordion-content" id="item1">
+                      <div class="accordion-content" id="item<%=i+1%>">
                         <%
                           ArrayList sections = cb.getSectionNames(i);
                           for(int j = 0; j < sections.size(); j++) {
                         %>
                           <div class="accordions">
                           <div class="accordion-item">
-                            <div class="accordion-title" data-tab="item11">
+                            <div class="accordion-title" data-tab="item<%=i+1%><%=j+1%>">
                                 <h2><%out.print(sections.get(j));%></h2>
                             </div>
-                            <div class="accordion-content" id="item11">
+                            <div class="accordion-content" id="item<%=i+1%><%=j+1%>">
 
                             </div>
                           </div>
@@ -60,7 +60,7 @@
                         <%}%>
                       </div>
                     </div>
-                  <%}%> -->
+                  <%}%>
 
                     <%-- <div class="accordion-item">
                       <div class="accordion-title" data-tab="item2">

@@ -86,8 +86,8 @@
 							<h1>Custom-eBooks</h1>
 							<h2>This application lets you create an ebook having chapters and sections with your say in it</h2>
 							<div >
-								<a href="#" style="border-bottom: 0px;"><button  type="submit" id="consumer" class="btn btn-default userLogin">I'm a consumer</button></a>
-								<a href="#" style="border-bottom: 0px;"><button  type="submit" id="producer" class="btn btn-default userLogin">I'm a producer</button></a>
+								<a href="#" style="border-bottom: 0px;"><button  type="submit" id="consumer" class="btn btn-default userLogin">I'm a customer</button></a>
+								<a href="#" style="border-bottom: 0px;"><button  type="submit" id="producer" class="btn btn-default userLogin">I'm a publisher</button></a>
 							</div>
 						</div>
 					</div>
