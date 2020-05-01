@@ -5,7 +5,7 @@ import javax.servlet.*;
 import javax.servlet.jsp.*;
 import javax.servlet.http.*;
 import javax.servlet.jsp.tagext.*;
-import com.ebooks.XMLExist_1;
+import com.ebooks.ExistSearchUtil;
 import com.ebooks.CustomEbookBuilder;
 import org.w3c.dom.*;
 import java.util.*;
@@ -32,11 +32,10 @@ public class AddBookServelt extends HttpServlet {
     String id = request.getParameter("name");
     PrintWriter out = response.getWriter();
     HttpSession session = request.getSession();
-    XMLExist_1 ex = (XMLExist_1)session.getAttribute("ex");
+    ExistSearchUtil ex = (ExistSearchUtil)session.getAttribute("ex");
     CustomEbookBuilder cb = (CustomEbookBuilder)session.getAttribute("cb");
 
     Element chapter = ex.ChapterAtIndex(Integer.parseInt(id));
-
     cb.addChapter(chapter);
 
     session.setAttribute("cb",cb);

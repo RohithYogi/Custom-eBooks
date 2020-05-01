@@ -45,7 +45,7 @@ import org.w3c.dom.Document;
 import org.xml.sax.InputSource;
 
 
-public class XMLExist_1 {
+public class ExistSearchUtil {
 
        // DatabaseImpl asma = new DatabaseImpl();
 
@@ -54,7 +54,7 @@ public class XMLExist_1 {
        protected static String DRIVER = "org.exist.xmldb.DatabaseImpl";
        protected static List<Document> storing = new ArrayList<Document>();
 
-       public XMLExist_1(){}
+       public ExistSearchUtil(){}
 
 	      private static Document convertStringToXMLDocument(String xmlString){
            //Parser that produces DOM object trees from XML content
@@ -167,8 +167,6 @@ public class XMLExist_1 {
                 }
          }
 
-
-
        Set<String> set = new HashSet<String>(chapters_xmls);
        chapters_xmls.clear();
        chapters_xmls.addAll(set);
@@ -247,23 +245,101 @@ public class XMLExist_1 {
             return sections_doms;
           }
 
-    public static Map<Integer,String> returnChapterNames(List<Document>chapter_doms){
-
+    public static List<String> returnChapterNames(List<Document>chapter_doms){
           storing.clear();
           storing.addAll(chapter_doms);
 
-          Map<Integer,String> nameIndexs = new HashMap<Integer,String>();
+          List<String> names= new ArrayList<String>();
 
           for(int i = 0; i < chapter_doms.size(); i+=1) {
-            nameIndexs.put(i,chapter_doms.get(i).getElementsByTagName("name").item(0).getTextContent());
+            names.add(chapter_doms.get(i).getElementsByTagName("name").item(0).getTextContent());
           }
-          return nameIndexs;
+          return names;
         }
+
 
     public static Element ChapterAtIndex(int id){
       Element new_cha_dom = storing.get(id).getDocumentElement();
       return new_cha_dom;
+
     }
+
+    public static void StoreIntoCollection(String pathtoFile ,String FileNameToStore) throws Exception{
+
+          // initialize database driver
+          Database database = (Database) new DatabaseImpl();
+          DatabaseManager.registerDatabase(database);
+
+          database.setProperty("create-database", "true");
+          DatabaseManager.registerDatabase(database);
+
+          Collection col = null;
+          XMLResource res = null;
+          try {
+              col = getOrCreateCollection(collectionPath);
+
+              res = (XMLResource)col.createResource(FileNameToStore, "XMLResource");
+              File f = new File(pathtoFile);
+              if(!f.canRead()) {
+//                  System.out.println("cannot read file " + pathtoFile);
+                  return;
+              }
+
+              res.setContent(f);
+//              System.out.print("storing document " + res.getId() + "...");
+              col.storeResource(res);
+//              System.out.println("ok.");
+          } finally {
+              //dont forget to cleanup
+              if(res != null) {
+                  try { ((EXistResource)res).freeResources(); } catch(XMLDBException xe) {xe.printStackTrace();}
+              }
+
+              if(col != null) {
+                  try { col.close(); } catch(XMLDBException xe) {xe.printStackTrace();}
+              }
+          }
+    }
+
+
+    private static Collection getOrCreateCollection(String collectionUri) throws XMLDBException {
+           return getOrCreateCollection(collectionUri, 0);
+       }
+
+    private static Collection getOrCreateCollection(String collectionUri, int pathSegmentOffset) throws XMLDBException {
+
+            Collection col = DatabaseManager.getCollection(URI + collectionUri);
+            if(col == null) {
+                if(collectionUri.startsWith("/")) {
+                    collectionUri = collectionUri.substring(1);
+                }
+
+                String pathSegments[] = collectionUri.split("/");
+                if(pathSegments.length > 0) {
+
+                    StringBuilder path = new StringBuilder();
+                    for(int i = 0; i <= pathSegmentOffset; i++) {
+                        path.append("/" + pathSegments[i]);
+                    }
+
+                    Collection start = DatabaseManager.getCollection(URI + path);
+                    if(start == null) {
+                        //collection does not exist, so create
+                        String parentPath = path.substring(0, path.lastIndexOf("/"));
+                        Collection parent = DatabaseManager.getCollection(URI + parentPath);
+                        CollectionManagementService mgt = (CollectionManagementService) parent.getService("CollectionManagementService", "1.0");
+                        col = mgt.createCollection(pathSegments[pathSegmentOffset]);
+                        col.close();
+                        parent.close();
+                    } else {
+                        start.close();
+                    }
+                }
+                return getOrCreateCollection(collectionUri, ++pathSegmentOffset);
+            } else {
+                return col;
+            }
+        }
 
 
 
