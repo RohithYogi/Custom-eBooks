@@ -115,7 +115,7 @@
   								<form class="form-inline" id="fh5co-header-subscribe">
   									<div class="col-md-8 col-md-offset-2">
   										<div class="form-group">
-  											<input type="text" name="keywords" class="form-control" id="email" placeholder=<%=recevied_keywords %>>
+  											<input type="text" name="keywords" class="form-control" id="email" placeholder="Enter Chapter Name">
   											<button type="submit" class="btn btn-default">Search</button>
   										</div>
   									</div>

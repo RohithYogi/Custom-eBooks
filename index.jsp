@@ -21,19 +21,19 @@
 	<%
 		String type = null;
 		CustomEbookBuilder cb;
-		XMLExist_1 ex;
+		ExistSearchUtil ex;
 	 // Check if this is new comer on your Webpage.
 	 if (session.isNew() ){
 			session.setAttribute("type", type);
 			cb = new CustomEbookBuilder("Database Systems");
 			session.setAttribute("cb", cb);
-			ex = new XMLExist_1();
+			ex = new ExistSearchUtil();
 			session.setAttribute("ex", ex);
 	 }
 	 else {
 		 type = (String)session.getAttribute("type");
 		 cb = (CustomEbookBuilder)session.getAttribute("cb");
-		 ex = (XMLExist_1)session.getAttribute("ex");
+		 ex = (ExistSearchUtil)session.getAttribute("ex");
 	 }
 
 
@@ -124,7 +124,7 @@
 
 	<%-- This creates the section containing the dummy books of the page --%>
 		<%@ include file = "jsp/structure.jsp" %>
-		<%} 
+		<%}
 		else {%>
 			<header id="fh5co-header" class="fh5co-cover" role="banner" style="background-image:url(images/img_bg_2.jpg);">
 			<div class="overlay"></div>
