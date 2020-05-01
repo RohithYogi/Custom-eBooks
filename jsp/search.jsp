@@ -81,6 +81,7 @@
   	<!--[if lt IE 9]>
   	<script src="js/respond.min.js"></script>
   	<![endif]-->
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css" rel="stylesheet">
 
 
     </head>
@@ -97,12 +98,12 @@
   				<div class="col-xs-10 text-right menu-1">
   					<ul>
   						<li><a href="../index.jsp">Home</a></li>
-  						<li><a href="about.html">About</a></li>
-  						<li class="active"><a href="work.html">eBooks</a></li>
+  						<li><a href="../html/about.html">About</a></li>
+  						<li class="active"><a href="../html/work.html">eBooks</a></li>
   						<li class="has-dropdown">
-  							<a href="services.html">How?</a>
+  							<a href="../html/services.html">How?</a>
   						</li>
-  						<li><a href="contact.html">Contact</a></li>
+  						<li><a href="../html/contact.html">Contact</a></li>
   						<li class="btn-cta"><a href="#"><span>Login</span></a></li>
   					</ul>
   				</div>
@@ -137,6 +138,71 @@
 
 
      <div id="fh5co-project">
+      <div class="stripe" style="padding-left: 5%;padding-right: 5%;padding-bottom: 2%;">
+        <div class="row">
+          <div class="col-md-4">
+          <div class="col-half animate-box" data-animate-effect="fadeInLeft">
+          <div class="table-c">
+            <div class="desc">
+              <div class="columns">
+                <ul class="price">
+                  <li class="header">Chapters
+                    <!-- <button id="btnAdd" type="button" class="btn btn-add" data-toggle="tooltip" data-original-title="Add more controls"><i class="glyphicon glyphicon-plus-sign"></i>&nbsp; Add&nbsp;</button> -->
+                  </li>
+                  <div class="accordions">
+                    <div class="accordion-item">
+                      <div class="accordion-title" data-tab="item1">
+                          <h2>Chapter-1
+                            <button type="button" class="btn btn-danger remove"><i class="glyphicon glyphicon-remove-sign"></i></button>
+                          </h2>
+                      </div>
+                      <div class="accordion-content" id="item1">
+
+                      </div>
+                    </div>
+                    <div class="accordion-item">
+                      <div class="accordion-title" data-tab="item2">
+                          <h2>Chapter-2
+                            <button type="button" class="btn btn-danger remove"><i class="glyphicon glyphicon-remove-sign"></i></button>
+                          </h2>
+                      </div>
+                      <div class="accordion-content" id="item2">
+
+                      </div>
+                    </div>
+                    <div class="accordion-item">
+                      <div class="accordion-title" data-tab="item3">
+                          <h2>Chapter-3
+                            <button type="button" class="btn btn-danger remove"><i class="glyphicon glyphicon-remove-sign"></i></button>
+                          </h2>
+                      </div>
+                      <div class="accordion-content" id="item3">
+
+                      </div>
+                    </div>
+                  </div>
+
+                 
+
+                  <li><a href="#" class="btn btn-lg btn-primary">Finish</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+          </div>
+          <div class="col-md-8">
+            <!-- <embed src="" width="600px" height="500px" /> -->
+            <iframe src="../Projectproposal.pdf" style="width:100%; height:500px;"></iframe>
+            <button id="btnAdd" type="button" class="btn btn-add" style="position:absolute;z-index:10000;margin-left:-12%;margin-top:4px;">
+              <i class="glyphicon glyphicon-plus-sign"></i>&nbsp; Add&nbsp;
+            </button>
+          </div>
+          
+        </div>
+      </div>      
+
+
   		<div class="container">
   			<div class="row">
           <% for(int i = 0; i < NoOfChapters; i+=1) { %>
