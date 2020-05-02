@@ -36,6 +36,7 @@
     <%-- click index returning --%>
     <script src="http://code.jquery.com/jquery-latest.min.js"></script>
     <script src="../js/indexreturn.js"></script>
+    <script src="../js/search-results.js"></script>
 
   	<!-- FOR IE9 below -->
   	<!--[if lt IE 9]>
@@ -161,7 +162,7 @@
 
         </div>
       </div>
-    <div id="ebooks-search-retults">
+    <div id = "ebooks-search-results">
       <%@ include file = "./search_element.jsp" %>
     </div>
   	</div>

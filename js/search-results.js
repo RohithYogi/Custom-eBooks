@@ -1,7 +1,8 @@
 $(document).ready(function(){
           $('.search_field').keyup(function(){
+              console.log($('.search_field').val());
               $.ajax({
-                  url: "/GetSearchResults",
+                  url: "GetSearchResults",
                   type: "GET",
                   cache: false,
                   data: { 'search_text' : $('.search_field').val() },
@@ -9,5 +10,6 @@ $(document).ready(function(){
                     $('#search-results').append(data);
                   }
               });
+              $( "#ebooks-search-results" ).load( "./search_element.jsp");
           });
         });
