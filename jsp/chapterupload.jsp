@@ -58,7 +58,7 @@
           console.log(chaptertags);
           console.log(chapterid);
 
-          // servletCall(chaptername,chaptertags,chapterid);
+          servletCall(chaptername,chaptertags,chapterid);
 
 
       });
@@ -75,8 +75,8 @@
             id: chapterid
           },
           function(result) {
-            // console.log(result);
-            window.location.replace("./../index.jsp");
+            console.log(result);
+            // window.location.replace("./../index.jsp");
       });
   };
 

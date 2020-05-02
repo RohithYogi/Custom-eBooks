@@ -16,8 +16,9 @@ import java.util.List;
 import java.util.*;
 
 import javax.xml.parsers.DocumentBuilder;
-import javax.xml.parsers.DocumentBuilderFactory;
 import org.w3c.dom.Document;
+import javax.xml.parsers.ParserConfigurationException;
+import javax.xml.parsers.DocumentBuilderFactory;
 import org.xml.sax.InputSource;
 
 
@@ -30,39 +31,52 @@ public class UploadChapterServelet extends HttpServlet {
     String name = request.getParameter("name");
     String tags = request.getParameter("tags");
     // String storagepath = request.getParameter("path");
-    int id = Integer.parseInt(request.getParameter("id"));
-
-    Element chapter = document.createElement("chapter");
-    Element chaptername = document.createElement("name");
-    Element chapterkeywords = document.createElement("keywords");
-    Element chapterid = document.createElement("chapter_id");
-    // Element chapterstoragepath = document.createElement("storage_path");
-
-    Text cname = document.createTextNode(name);
-    Text ctag = document.createTextNode(tags);
-    Text cid = document.createTextNode(id);
-    // Text csp = document.createTextNode(storagepath);
+    String id = request.getParameter("id");
 
 
-    chaptername.appendChild(cname);
-    chapterid.appendChild(cid)
-    chapterkeywords.appendChild(ctag);
-    // chapterstoragepath.appendChild(csp);
+    try{
+        DocumentBuilderFactory documentFactory = DocumentBuilderFactory.newInstance();
+        DocumentBuilder documentBuilder = documentFactory.newDocumentBuilder();
+        Document document = documentBuilder.newDocument();
+        Element chapter = document.createElement("chapter");
+        Element chaptername = document.createElement("name");
+        Element chapterkeywords = document.createElement("keywords");
+        Element chapterid = document.createElement("chapter_id");
+        // Element chapterstoragepath = document.createElement("storage_path");
 
-    chapter.appendChild(chaptername);
-    chapter.appendChild(chapterid);
-    chapter.appendChild(chapterkeywords);
-    // chapter.appendChild(chapterkeywords);
+        Text cname = document.createTextNode(name);
+        Text ctag = document.createTextNode(tags);
+        Text cid = document.createTextNode(id);
+        // Text csp = document.createTextNode(storagepath);
 
-    PrintWriter out = response.getWriter();
-    HttpSession session = request.getSession();
-    ExistSearchUtil ex = (ExistSearchUtil)session.getAttribute("ex");
-    CustomEbookBuilder cb = (CustomEbookBuilder)session.getAttribute("cb");
 
-    Element chapter = ex.ChapterAtIndex(Integer.parseInt(id));
-    cb.addChapter(chapter);
+        chaptername.appendChild(cname);
+        chapterid.appendChild(cid);
+        chapterkeywords.appendChild(ctag);
+        // chapterstoragepath.appendChild(csp);
 
-    session.setAttribute("cb",cb);
-    session.setAttribute("ex",ex);
+        chapter.appendChild(chaptername);
+        chapter.appendChild(chapterid);
+        chapter.appendChild(chapterkeywords);
+        // chapter.appendChild(chapterkeywords);
+
+        PrintWriter out = response.getWriter();
+        HttpSession session = request.getSession();
+        ExistSearchUtil ex = (ExistSearchUtil)session.getAttribute("ex");
+        CustomEbookBuilder cb = (CustomEbookBuilder)session.getAttribute("cb");
+
+        cb.addChapter(chapter);
+
+        session.setAttribute("cb",cb);
+        session.setAttribute("ex",ex);
+
+
+
+    }catch (ParserConfigurationException pce) {
+      System.out.println("DEBUG : Unable to create builder instance");
+      pce.printStackTrace();
+    }
+
+
   }
 }
