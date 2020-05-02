@@ -1,36 +1,3 @@
-<%@ page import="com.ebooks.ExistSearchUtil, java.util.*,java.util.Map ,java.util.List, org.w3c.dom.Document" %>
-
-
-<%
-    ExistSearchUtil ex;
-    String recevied_keywords;
-    int NoOfChapters = 0;
-
-    if (session.isNew() ){
-       ex = new ExistSearchUtil();
-       session.setAttribute("ex", ex);
-    }
-    else {
-      ex = (ExistSearchUtil)session.getAttribute("ex");
-    }
-
-  	if(request.getParameter("keywords") == null)
-  		recevied_keywords = " ";
-  	else
-  		recevied_keywords = request.getParameter("keywords");
-
-
-      List<String> keys = Arrays.asList(recevied_keywords.split(" "));;
-
-      List<Document> chapter_doms = ex.searchByChapter(keys);
-
-      if(chapter_doms.size()!=0)
-        NoOfChapters =chapter_doms.size();
-
-    List<String> chapternameIndexs = ex.returnChapterNames(chapter_doms);
-
-%>
-
 
   <!DOCTYPE HTML>
   <html>
@@ -116,7 +83,7 @@
   								<form class="form-inline" id="fh5co-header-subscribe">
   									<div class="col-md-8 col-md-offset-2">
   										<div class="form-group">
-  											<input type="text" name="keywords" class="form-control" id="email" placeholder="Enter Chapter Name">
+  											<input type="text" name="keywords" class="form-control search_field" id="email" placeholder="Enter Chapter Name">
   											<button type="submit" class="btn btn-default">Search</button>
   										</div>
   									</div>
@@ -175,7 +142,7 @@
                     </div>
                   </div>
 
-                 
+
 
                   <li><a href="#" class="btn btn-lg btn-primary">Finish</a></li>
                 </ul>
@@ -191,26 +158,12 @@
               <i class="glyphicon glyphicon-plus-sign"></i>&nbsp; Add&nbsp;
             </button>
           </div>
-          
+
         </div>
-      </div>      
-
-
-  		<div class="container">
-  			<div class="row">
-          <% for(int i = 0; i < NoOfChapters; i+=1) { %>
-          <div class="col-md-4 animate-box bookblock" id = "<%= i %>" >
-          <%-- <div class="col-md-4 animate-box"> --%>
-  					<div class="project-grid" style="background-image:url(../images/bk-1.png);">
-  						<div class="desc">
-  							<%-- <span>Application</span> --%>
-  							<h3><a href="#"><%=chapternameIndexs.get(i)%></a></h3>
-              </div>
-  					</div>
-  				</div>
-        <% } %>
-  			</div>
-  		</div>
+      </div>
+    <div id="ebooks-search-retults">
+      <%@ include file = "./search_element.jsp" %>
+    </div>
   	</div>
 
 

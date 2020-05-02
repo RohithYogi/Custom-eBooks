@@ -45,40 +45,40 @@
 
   <script>
 
-  $(document).ready(function(){
-
-      // Get value on button click and show alert
-      $("#csubmit").click(function(){
-          var chaptername = $("#cname").val();
-          var chaptertags = $("#ctags").val();
-          var chapterid = $("#cid").val();
-
-          // var chapterpdf = $("cpdf").val();
-          console.log(chaptername);
-          console.log(chaptertags);
-          console.log(chapterid);
-
-          servletCall(chaptername,chaptertags,chapterid);
-
-
-      });
-
-  });
-
-  function servletCall(chaptername,chaptertags,chapterid) {
-    // console.log(chap_id);
-      $.post(
-          "UploadChapterServelet",
-          {
-            name : chaptername
-            tags: chaptertags
-            id: chapterid
-          },
-          function(result) {
-            console.log(result);
-            // window.location.replace("./../index.jsp");
-      });
-  };
+  // $(document).ready(function(){
+	//
+  //     // Get value on button click and show alert
+  //     $("#csubmit").click(function(){
+  //         var chaptername = $("#cname").val();
+  //         var chaptertags = $("#ctags").val();
+  //         var chapterid = $("#cid").val();
+	//
+  //         // var chapterpdf = $("cpdf").val();
+  //         console.log(chaptername);
+  //         console.log(chaptertags);
+  //         console.log(chapterid);
+	//
+  //         servletCall(chaptername,chaptertags,chapterid);
+	//
+	//
+  //     });
+	//
+  // });
+	//
+  // function servletCall(chaptername,chaptertags,chapterid) {
+  //   // console.log(chap_id);
+  //     $.post(
+  //         "UploadChapterServelet",
+  //         {
+  //           name : chaptername
+  //           tags: chaptertags
+  //           id: chapterid
+  //         },
+  //         function(result) {
+  //           console.log(result);
+  //           // window.location.replace("./../index.jsp");
+  //     });
+  // };
 
 
   </script>
@@ -144,25 +144,18 @@
 			<div class="row">
 				<div class="col-md-12 animate-box">
 					<h2>Chapters Info</h2>
-					<form action="#">
+					<form action="UploadChapterServelet" method="post" enctype="multipart/form-data">
 						<div class="row form-group">
 							<div class="col-md-12">
 								<label for="fname">Chapter Name</label>
-								<input type="text" id="cname" class="form-control" placeholder="Enter chapter name">
+								<input type="text" id="cname" class="form-control" placeholder="Enter chapter name" name="chapter-name">
 							</div>
 						</div>
 
 						<div class="row form-group">
 							<div class="col-md-12">
 								<label for="fname">Chapter Tags</label>
-								<input type="text" id="ctags" class="form-control" placeholder="Enter keywords or tags">
-							</div>
-						</div>
-
-            <div class="row form-group">
-							<div class="col-md-12">
-								<label for="fname">Chapter ID</label>
-								<input type="text" id="cid" class="form-control" placeholder="Enter chapter id">
+								<input type="text" id="ctags" class="form-control" placeholder="Enter keywords or tags" name="chapter-tags">
 							</div>
 						</div>
 
@@ -181,7 +174,7 @@
 							<div class="file-container">
 							  <!-- <div class="file-overlay"></div> -->
 							  <div class="file-wrapper">
-							    <input class="file-input" id="js-file-input" type="file"/>
+							    <input class="file-input" id="js-file-input" type="file" name="chapter-file"/>
 							    <div class="file-content">
 							      <div class="file-infos">
 							        <p class="file-icon">

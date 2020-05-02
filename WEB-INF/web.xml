@@ -24,4 +24,15 @@
    <servlet-name>UserLoginServlet</servlet-name>
    <url-pattern>/jsp/UserLoginServlet</url-pattern>
 </servlet-mapping>
+
+<servlet>
+   <servlet-name>UploadChapterServelet</servlet-name>
+   <servlet-class>UploadChapterServelet</servlet-class>
+</servlet>
+
+<servlet-mapping>
+   <servlet-name>UploadChapterServelet</servlet-name>
+   <url-pattern>/html/UploadChapterServelet</url-pattern>
+</servlet-mapping>
+
 </web-app>
