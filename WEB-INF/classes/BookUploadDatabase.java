@@ -48,14 +48,16 @@ public class BookUploadDatabase extends HttpServlet {
           fileSaveDir.mkdir();
       }
 
-      cb.saveAsXML(savePath+File.separator+"example.xml");
-      response.sendRedirect("./jsp/generic.jsp");
+      File file = new File(savePath+File.separator+"example.xml");
+      if(file.delete()){
+            System.out.println("File deleted");
+        }else System.out.println("File doesn't exist");
 
       try{
+          cb.saveAsXML(savePath+File.separator+"example.xml");
           ex.StoreIntoCollection(savePath+File.separator+"example.xml");
           session.setAttribute("cb",cb);
           session.setAttribute("ex",ex);
-
 
     }catch(Exception e){
       e.printStackTrace();

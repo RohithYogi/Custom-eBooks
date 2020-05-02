@@ -1,15 +1,9 @@
 $(document).ready(function() {
     $(".bookupload").click(function() {
        console.log("Hai");
-        servletCall();
-
+       $.post(
+           "BookUploadDatabase"
+         )
     });
+    // window.location.replace("./html/signup.html");
 });
-function servletCall() {
-  // console.log(chap_id);
-    $.post(
-        "BookUploadDatabase",
-        function(result) {
-          console.log(result);
-    });
-};
