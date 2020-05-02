@@ -18,7 +18,7 @@
 <div class="container">
 	<div class="row">
     <% for(int i = 0; i < chapternameIndexs.size(); i+=1) { %>
-    <div class="col-md-4 animate-box bookblock" id = "<%= i %>" >
+    <div class="col-md-4 bookblock" id = "<%= i %>" >
     <%-- <div class="col-md-4 animate-box"> --%>
 			<div class="project-grid" style="background-image:url(../images/bk-1.png);">
 				<div class="desc">
