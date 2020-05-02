@@ -35,4 +35,14 @@
    <url-pattern>/html/UploadChapterServelet</url-pattern>
 </servlet-mapping>
 
+<servlet>
+   <servlet-name>BookUploadDatabase</servlet-name>
+   <servlet-class>BookUploadDatabase</servlet-class>
+</servlet>
+
+<servlet-mapping>
+   <servlet-name>BookUploadDatabase</servlet-name>
+   <url-pattern>/jsp/BookUploadDatabase</url-pattern>
+</servlet-mapping>
+
 </web-app>

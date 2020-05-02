@@ -1,6 +1,5 @@
 <%@ page import="com.ebooks.CustomEbookBuilder, java.util.*, com.ebooks.ExistSearchUtil" %>
 
-
 <%
 
 %>
@@ -112,8 +111,7 @@
 
 
                 </div>
-
-                  <li><a href="#" class="btn btn-lg btn-primary">Upload PDF</a></li>
+                  <li><button type="button" class="btn btn-lg btn-primary bookupload">Upload PDF</a></button></li>
                 </ul>
               </div>
             </div>

@@ -264,7 +264,7 @@ public class ExistSearchUtil {
 
     }
 
-    public static void StoreIntoCollection(String pathtoFile ,String FileNameToStore) throws Exception{
+    public static void StoreIntoCollection(String pathtoFile) throws Exception{
 
           // initialize database driver
           Database database = (Database) new DatabaseImpl();
@@ -278,7 +278,7 @@ public class ExistSearchUtil {
           try {
               col = getOrCreateCollection(collectionPath);
 
-              res = (XMLResource)col.createResource(FileNameToStore, "XMLResource");
+              res = (XMLResource)col.createResource(null, "XMLResource");
               File f = new File(pathtoFile);
               if(!f.canRead()) {
 //                  System.out.println("cannot read file " + pathtoFile);

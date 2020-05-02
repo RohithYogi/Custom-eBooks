@@ -82,7 +82,7 @@ public class CustomEbookBuilder {
     book.setAttributeNode(attr2);
 
     Attr attr3 = document.createAttribute("xsi:schemaLocation");
-    attr3.setValue("https://www.custom-ebooks.com/database-schema custom_ebooks_schema.xsd");
+    attr3.setValue("https://www.custom-ebooks.com/database-schema xmldb:exist:///db/Testing/custom_ebooks_schema.xsd");
     book.setAttributeNode(attr3);
 
     Element name = document.createElement("name");

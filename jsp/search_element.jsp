@@ -6,7 +6,7 @@
     String recevied_keywords;
     int NoOfChapters = 0;
 
-    if (session.isNew() ){
+    if (session.isNew()){
        ex = new ExistSearchUtil();
        session.setAttribute("ex", ex);
     }

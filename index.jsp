@@ -22,6 +22,7 @@
 		String type = null;
 		CustomEbookBuilder cb;
 		ExistSearchUtil ex;
+		int id;
 	 // Check if this is new comer on your Webpage.
 	 if (session.isNew() ){
 			session.setAttribute("type", type);
@@ -29,6 +30,8 @@
 			session.setAttribute("cb", cb);
 			ex = new ExistSearchUtil();
 			session.setAttribute("ex", ex);
+			id = new Integer(0);
+			session.setAttribute("id", id);
 	 }
 	 else {
 		 type = (String)session.getAttribute("type");
@@ -53,6 +56,10 @@
 
 	<!-- Modernizr JS -->
 	<script src="js/modernizr-2.6.2.min.js"></script>
+	
+	<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+	<script src="js/finalupload.js"></script>
+
 	<!-- FOR IE9 below -->
 	<!--[if lt IE 9]>
 	<script src="js/respond.min.js"></script>
