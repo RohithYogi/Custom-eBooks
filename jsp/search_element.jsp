@@ -2,27 +2,15 @@
 
 
 <%
-    ExistSearchUtil ex;
-    String recevied_keywords;
-    int NoOfChapters = 0;
 
-    if (session.isNew()){
-       ex = new ExistSearchUtil();
-       session.setAttribute("ex", ex);
-    }
-    else {
-      ex = (ExistSearchUtil)session.getAttribute("ex");
-    }
+    String recevied_keywords = (String) session.getAttribute("chapter_search_keywords");
+    if ( recevied_keywords == null ) recevied_keywords = " ";
 
-  	if(request.getParameter("keywords") == null)
-  		recevied_keywords = " ";
-  	else
-  		recevied_keywords = request.getParameter("keywords");
+    ExistSearchUtil ex = (ExistSearchUtil) session.getAttribute("ex");
 
-
-      List<String> keys = Arrays.asList(recevied_keywords.split(" "));;
-      List<Document> chapter_doms = ex.searchByChapter(keys);
-      List<String> chapternameIndexs = ex.returnChapterNames(chapter_doms);
+    List<String> keys = Arrays.asList(recevied_keywords.split(" "));
+    List<Document> chapter_doms = ex.searchByChapter(keys);
+    List<String> chapternameIndexs = ex.returnChapterNames(chapter_doms);
 
 %>
 
@@ -30,7 +18,7 @@
 <div class="container">
 	<div class="row">
     <% for(int i = 0; i < chapternameIndexs.size(); i+=1) { %>
-    <div class="col-md-4 animate-box bookblock" id = "<%= i %>" >
+    <div class="col-md-4 bookblock" id = "<%= i %>" >
     <%-- <div class="col-md-4 animate-box"> --%>
 			<div class="project-grid" style="background-image:url(../images/bk-1.png);">
 				<div class="desc">

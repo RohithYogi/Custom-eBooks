@@ -117,7 +117,7 @@
 
                 </div>
 
-                  <li><a href="#" class="btn btn-lg btn-primary">Generate PDF</a></li>
+                  <li id="GeneratePdfButtonId"><a href="#" class="btn btn-lg btn-primary">Generate PDF</a></li>
                 </ul>
               </div>
             </div>

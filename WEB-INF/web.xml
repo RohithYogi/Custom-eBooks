@@ -45,4 +45,14 @@
    <url-pattern>/jsp/BookUploadDatabase</url-pattern>
 </servlet-mapping>
 
+<servlet>
+  <servlet-name>GetSearchResults</servlet-name>
+  <servlet-class>GetSearchResults</servlet-class>
+</servlet>
+
+<servlet-mapping>
+  <servlet-name>GetSearchResults</servlet-name>
+  <url-pattern>/jsp/GetSearchResults</url-pattern>
+</servlet-mapping>
+
 </web-app>
