@@ -114,6 +114,12 @@
      <div id="fh5co-project">
       <div class="stripe" style="padding-left: 5%;padding-right: 5%;padding-bottom: 2%;">
         <div class="row">
+          <div id = "ebooks-search-results">
+            <%@ include file = "./search_element.jsp" %>
+          </div>
+      </div>
+      
+        <div class="row">
           <div class="col-md-4">
           <div class="col-half animate-box" data-animate-effect="fadeInLeft">
           <div class="table-c">
@@ -175,11 +181,8 @@
 
         </div>
       </div>
-      <div class="carousel-wrap">
-        <div class="owl-carousel owl-theme" id = "ebooks-search-results">
-            <%@ include file = "./search_element.jsp" %>
-        </div>
-      </div>
+
+        
 
 
   	</div>

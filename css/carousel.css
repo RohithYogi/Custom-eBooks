@@ -1,5 +1,5 @@
 .carousel-wrap {
-    width: 1000px;
+    width: 100% !important;
     margin: auto;
     position: relative;
   }
@@ -15,13 +15,19 @@
  
   .owl-carousel .item {
       text-align: center;
+      max-width: 350px !important;
+  }
+  .owl-carousel.owl-drag .owl-item {
+    max-width: 350px !important;
+    margin-right: 1% !important;
+    margin-left: 2% !important;
   }
   .owl-carousel .nav-btn{
       height: 47px;
       position: absolute;
       width: 26px;
       cursor: pointer;
-      top: 100px !important;
+      top: 30% !important;
   }
  
   .owl-carousel .owl-prev.disabled,

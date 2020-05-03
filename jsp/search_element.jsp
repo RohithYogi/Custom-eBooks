@@ -29,13 +29,16 @@
 	</div>
 </div>
 -->
-
-    <% for(int i = 0; i < chapternameIndexs.size(); i+=1) { %>
-    <div class="item bookblock" id = "<%= i %>">
-        <div class="project-grid" style="background-image:url(../images/bk-2.png);">
-            <div class="desc">
-                <h3><a href="#"><%=chapternameIndexs.get(i)%></a></h3>
+    <div class="carousel-wrap">
+        <div class="owl-carousel owl-theme">
+            <% for(int i = 0; i < chapternameIndexs.size(); i+=1) { %>
+            <div class="item bookblock" id = "<%= i %>">
+                <div class="project-grid" style="background-image:url(../images/bk-2.png);">
+                    <div class="desc">
+                        <h3><a href="#"><%=chapternameIndexs.get(i)%></a></h3>
+                    </div>
+                </div>
             </div>
+            <%}%>
         </div>
     </div>
-    <%}%>
