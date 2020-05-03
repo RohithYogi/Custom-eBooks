@@ -5,6 +5,13 @@ $(document).ready(function() {
 
     });
 });
+// document.addEventListener('DOMNodeInserted', function(e) {
+//   $(".bookblock").click(function() {
+//       var chap_id = $(this).attr("id");
+//       servletCall(chap_id);
+//
+//   });
+// });
 function servletCall(chap_id) {
   // console.log(chap_id);
     $.post(

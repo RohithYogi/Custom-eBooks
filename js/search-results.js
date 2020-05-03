@@ -14,7 +14,6 @@ $(document).ready(function(){
               $.get("./search_element.jsp", function (data) {
                     $("#ebooks-search-results").html(data);
                 });
-              animation();
           });
         });
 
@@ -24,7 +23,7 @@ function animation() {
     $('.animate-box').waypoint( function( direction ) {
 
       if( direction === 'down' && !$(this.element).hasClass('animated-fast') ) {
-        
+
         i++;
 
         $(this.element).addClass('item-animate');
@@ -47,9 +46,9 @@ function animation() {
               el.removeClass('item-animate');
             },  k * 200, 'easeInOutExpo' );
           });
-          
+
         }, 100);
-        
+
       }
 
     } , { offset: '85%' } );

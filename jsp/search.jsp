@@ -18,6 +18,8 @@
   	<meta name="twitter:image" content="" />
   	<meta name="twitter:url" content="" />
   	<meta name="twitter:card" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
 
   	<!-- <link href='https://fonts.googleapis.com/css?family=Work+Sans:400,300,600,400italic,700' rel='stylesheet' type='text/css'> -->
 
@@ -29,14 +31,25 @@
   	<link rel="stylesheet" href="../css/bootstrap.css">
   	<!-- Theme style  -->
   	<link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/carousel.css">
+    <!-- Owl Stylesheets -->
+    <link rel="stylesheet" href="../css/owl.carousel.min.css">
+    <link rel="stylesheet" href="../css/owl.theme.default.min.css">
 
-  	<!-- Modernizr JS -->
-  	<script src="../js/modernizr-2.6.2.min.js"></script>
 
-    <%-- click index returning --%>
-    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <!-- Modernizr JS -->
+    <script src="../js/modernizr-2.6.2.min.js"></script>
+    <%-- <script src="http://code.jquery.com/jquery-latest.min.js"></script> --%>
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+    <script src="../js/owl.carousel.min.js"></script>
+    <script src="../js/owl.carousel.js"></script>
+    <script defer src="../js/carousel.js"></script>
     <script src="../js/indexreturn.js"></script>
     <script src="../js/search-results.js"></script>
+
+
+
+
 
   	<!-- FOR IE9 below -->
   	<!--[if lt IE 9]>
@@ -162,9 +175,13 @@
 
         </div>
       </div>
-    <div id = "ebooks-search-results">
-      <%@ include file = "./search_element.jsp" %>
-    </div>
+      <div class="carousel-wrap">
+        <div class="owl-carousel owl-theme" id = "ebooks-search-results">
+            <%@ include file = "./search_element.jsp" %>
+        </div>
+      </div>
+
+
   	</div>
 
 
@@ -195,9 +212,9 @@
   	</div>
 
   	<!-- jQuery -->
-  	<script src="../js/jquery.min.js"></script>
+  	<%-- <script src="../js/jquery.min.js"></script> --%>
   	<!-- jQuery Easing -->
-  	<script src="../js/jquery.easing.1.3.js"></script>
+  	<%-- <script src="../js/jquery.easing.1.3.js"></script> --%>
   	<!-- Bootstrap -->
   	<script src="../js/bootstrap.min.js"></script>
   	<!-- Waypoints -->
