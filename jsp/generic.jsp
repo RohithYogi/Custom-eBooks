@@ -82,7 +82,7 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-md-10 col-md-offset-1 text-center">
-					<div class="display-t" style="height: -webkit-fill-available;margin-top: 2%;">
+					<div class="display-t" style="height:50vh;margin-top: 2%;">
 						<div class="display-tc animate-box" data-animate-effect="fadeIn">
 							<h1>Custom-eBooks</h1>
 							<h2>This application lets you create an ebook having chapters and sections with your say in it</h2>
