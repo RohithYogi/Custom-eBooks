@@ -1,4 +1,4 @@
-package com.ebooks;
+// package com.ebooks;
 
 // import Final_Scripts.CustomEbookBuilder;
 import org.xmldb.api.base.*;
@@ -264,6 +264,13 @@ public class ExistSearchUtil {
 
     }
 
+    public static String PdfLocationAtIndex(int id){
+      String pdfPath = storing.get(id).getElementsByTagName("storage_path").item(0).getTextContent();
+      return pdfPath;
+
+    }
+
+
     public static void StoreIntoCollection(String pathtoFile) throws Exception{
 
           // initialize database driver
@@ -345,33 +352,12 @@ public class ExistSearchUtil {
 
     public static void main(String[] args) throws Exception {
 
-      System.out.println("Hai");
-
-      CustomEbookBuilder cb = new CustomEbookBuilder("Database Systems");
-
-
-
       List<String> keys = new ArrayList<String>();
-
-      keys.add("base");
-      // keys.add("dbch1");
-      // keys.add("data");
-
+      keys.add("data");
       List<Document> final_results = searchByChapter(keys);
-
-
-      // keys.clear();
-      // keys.add("dbch2sec1");
-      // List<Document> final_results_1 = searchBySection(keys);
-      //
-
-      Element ch1 = (Element) final_results.get(0).getDocumentElement();
-      Element ch2 = (Element) final_results.get(1).getDocumentElement();
-      // Element sec1 = (Element) final_results_1.get(0).getDocumentElement();
-
-      cb.addChapter(ch1);
-      // cb.addSection(0,sec1);
-      cb.saveAsXML("test.xml");
-
+      System.out.println(final_results.size());
+      List<String> names = returnChapterNames(final_results);
+      System.out.println(names.size());
+      System.out.println(PdfLocationAtIndex(0));
   }
 }

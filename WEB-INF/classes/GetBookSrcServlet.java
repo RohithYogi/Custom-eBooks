@@ -31,7 +31,8 @@ public class GetBookSrcServlet extends HttpServlet {
     HttpSession session = request.getSession();
     ExistSearchUtil ex = (ExistSearchUtil)session.getAttribute("ex");
     CustomEbookBuilder cb = (CustomEbookBuilder)session.getAttribute("cb");
-    String ret = "../GIS_Project_Proposal.pdf";
+    String ret = ex.PdfLocationAtIndex(Integer.parseInt(id));
+     // "../GIS_Project_Proposal.pdf";
     // get source of pdf into ret
     out.println(ret);
     session.setAttribute("ex",ex);
