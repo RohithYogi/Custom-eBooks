@@ -1,8 +1,10 @@
+package com.ebooks;
+
 import java.util.*;
 import java.io.OutputStream;
 import java.io.InputStream;
 import java.io.FileInputStream;
-import java.io.FileOutputStream; 
+import java.io.FileOutputStream;
 
 import com.itextpdf.text.Document;
 import com.itextpdf.text.pdf.PdfContentByte;
@@ -17,7 +19,7 @@ import java.io.File;
 
 /**
  * This class is used to merge two or more existing pdfs.
- To RUN : 
+ To RUN :
     javac -cp './jars/*:.' PDFMerger.java
     java -cp './jars/*:.' PDFMerger
  */
@@ -75,33 +77,26 @@ public class PDFMerger {
         System.out.println("Pdf files merged successfully.");
     }
 
-    public static String merger(String filePath){
+    public static String merger(org.w3c.dom.Document doc, String path){
         try{
-              //creating a constructor of file class and parsing an XML file
-              File file = new File(filePath);
-              //an instance of factory that gives a document builder
-              DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
-              //an instance of builder to parse the specified xml file
-              DocumentBuilder db = dbf.newDocumentBuilder();
-              org.w3c.dom.Document doc = db.parse(file);
               doc.getDocumentElement().normalize();
-              System.out.println("Root element: " + doc.getDocumentElement().getNodeName());
+              // System.out.println("Root element: " + doc.getDocumentElement().getNodeName());
               List<InputStream> inputPdfList = new ArrayList<InputStream>();
               NodeList nodeList = doc.getElementsByTagName("storage_path");
               // nodeList is not iterable, so we are using for loop
               for (int itr = 0; itr < nodeList.getLength(); itr++){
                     Node node = nodeList.item(itr);
-                    System.out.println("\nNode Name :" + node.getNodeName());
+                    // System.out.println("\nNode Name :" + node.getNodeName());
 
                     if (node.getNodeType() == Node.ELEMENT_NODE){
                         Element eElement = (Element) node;
-                        System.out.println("Address: "+ eElement.getTextContent());
+                        // System.out.println("Address: "+ eElement.getTextContent());
                         inputPdfList.add(new FileInputStream(eElement.getTextContent()));
                       }
               }
                 //merged pdf file.
-                String output = "./../ebooks/generated.pdf";
-                OutputStream outputStream = new FileOutputStream("./../ebooks/generated.pdf");
+                String output = "path + File.separator + ebooks/generated.pdf";
+                OutputStream outputStream = new FileOutputStream(output);
                 //to merge pdf files.
                 mergePdfFiles(inputPdfList, outputStream);
                 return output;
@@ -114,17 +109,15 @@ public class PDFMerger {
     }
 
     public static void main(String args[]){
-        try {
-            //list of input stream.
-            Scanner sc= new Scanner(System.in);
-            String filePath = sc.nextLine();
-            String path = merger(filePath);
-            System.out.println("Generated Book Address: "+ path);
-                 
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        // try {
+        //     //list of input stream.
+        //     Scanner sc= new Scanner(System.in);
+        //     String filePath = sc.nextLine();
+        //     String path = merger(filePath);
+        //     System.out.println("Generated Book Address: "+ path);
+        //
+        // } catch (Exception e) {
+        //     e.printStackTrace();
+        // }
     }
   }
-
-

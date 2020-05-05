@@ -1,4 +1,9 @@
 
+<%
+String keywords = (String) request.getParameter("keywords");
+session.setAttribute("chapter_search_keywords", keywords);
+%>
+
   <!DOCTYPE HTML>
   <html>
   	<head>
@@ -118,7 +123,7 @@
             <%@ include file = "./search_element.jsp" %>
           </div>
       </div>
-      
+
         <div class="row">
           <div class="col-md-4">
           <div class="col-half animate-box" data-animate-effect="fadeInLeft">
@@ -129,42 +134,11 @@
                   <li class="header">Chapters
                     <!-- <button id="btnAdd" type="button" class="btn btn-add" data-toggle="tooltip" data-original-title="Add more controls"><i class="glyphicon glyphicon-plus-sign"></i>&nbsp; Add&nbsp;</button> -->
                   </li>
-                  <div class="accordions">
-                    <div class="accordion-item">
-                      <div class="accordion-title" data-tab="item1">
-                          <h2>Chapter-1
-                            <button type="button" class="btn btn-danger remove"><i class="glyphicon glyphicon-remove-sign"></i></button>
-                          </h2>
-                      </div>
-                      <div class="accordion-content" id="item1">
-
-                      </div>
-                    </div>
-                    <div class="accordion-item">
-                      <div class="accordion-title" data-tab="item2">
-                          <h2>Chapter-2
-                            <button type="button" class="btn btn-danger remove"><i class="glyphicon glyphicon-remove-sign"></i></button>
-                          </h2>
-                      </div>
-                      <div class="accordion-content" id="item2">
-
-                      </div>
-                    </div>
-                    <div class="accordion-item">
-                      <div class="accordion-title" data-tab="item3">
-                          <h2>Chapter-3
-                            <button type="button" class="btn btn-danger remove"><i class="glyphicon glyphicon-remove-sign"></i></button>
-                          </h2>
-                      </div>
-                      <div class="accordion-content" id="item3">
-
-                      </div>
-                    </div>
+                  <div id = "chapter-list">
+                    <%@ include file = "book-list-min.jsp" %>
                   </div>
 
-
-
-                  <li><a href="#" class="btn btn-lg btn-primary">Finish</a></li>
+                  <li><a href="#" id = "finish" class="btn btn-lg btn-primary">Finish</a></li>
                 </ul>
               </div>
             </div>
@@ -173,8 +147,8 @@
           </div>
           <div class="col-md-8">
             <!-- <embed src="" width="600px" height="500px" /> -->
-            <iframe src="../Projectproposal.pdf" style="width:100%; height:500px;"></iframe>
-            <button id="btnAdd" type="button" class="btn btn-add" style="position:absolute;z-index:10000;margin-left:-12%;margin-top:4px;">
+            <iframe src="../Projectproposal.pdf" style="width:100%; height:500px;" id="pdf_frame"></iframe>
+            <button id="-1" type="button" class="btn btn-add chapter-add-button" style="position:absolute;z-index:10000;margin-left:-12%;margin-top:4px;">
               <i class="glyphicon glyphicon-plus-sign"></i>&nbsp; Add&nbsp;
             </button>
           </div>
@@ -182,7 +156,7 @@
         </div>
       </div>
 
-        
+
 
 
   	</div>

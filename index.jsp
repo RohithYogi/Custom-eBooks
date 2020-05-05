@@ -56,7 +56,7 @@
 
 	<!-- Modernizr JS -->
 	<script src="js/modernizr-2.6.2.min.js"></script>
-	
+
 	<script src="http://code.jquery.com/jquery-latest.min.js"></script>
 	<script src="js/finalupload.js"></script>
 
@@ -130,7 +130,7 @@
 		</header>
 
 	<%-- This creates the section containing the dummy books of the page --%>
-		<%@ include file = "jsp/structure.jsp" %>
+		<%@ include file = "jsp/book-list.jsp" %>
 		<%}
 		else {%>
 			<header id="fh5co-header" class="fh5co-cover" role="banner" style="background-image:url(images/img_bg_2.jpg);">

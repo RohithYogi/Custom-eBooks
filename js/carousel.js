@@ -10,15 +10,15 @@ $(document).ready( jQuery(function() {
                     items: 1,
                 },
                 600: {
-                    items: 4,
+                    items: 3,
                 },
                 1000: {
-                    items: 4,
+                    items: 3,
                 }
             }
         });
 }));
-// 
+//
 // document.addEventListener('DOMNodeInserted', function(e) {
 //   $('.owl-carousel').owlCarousel({
 //       margin: 10,

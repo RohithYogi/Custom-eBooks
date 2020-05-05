@@ -55,4 +55,14 @@
   <url-pattern>/jsp/GetSearchResults</url-pattern>
 </servlet-mapping>
 
+<servlet>
+  <servlet-name>GetBookSrcServlet</servlet-name>
+  <servlet-class>GetBookSrcServlet</servlet-class>
+</servlet>
+
+<servlet-mapping>
+  <servlet-name>GetBookSrcServlet</servlet-name>
+  <url-pattern>/jsp/GetBookSrcServlet</url-pattern>
+</servlet-mapping>
+
 </web-app>
