@@ -5,5 +5,5 @@ $(document).ready(function() {
            "BookUploadDatabase"
          )
     });
-    // window.location.replace("./html/signup.html");
+    window.location.replace("./html/signup.html");
 });

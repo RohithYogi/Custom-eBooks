@@ -1,0 +1,91 @@
+<schema xmlns:db = "https://www.custom-ebooks.com/database-schema"
+    xmlns = "http://www.w3.org/2001/XMLSchema"
+    targetNamespace = "https://www.custom-ebooks.com/database-schema"
+    elementFormDefault = "qualified">
+
+    <!--
+    CHANGE LOG
+      change 1 : 4-4-20 : changes to chapter type
+      change 2 : Its now compulsory for book and chapter to have
+      <chapters> and <sections> elements respectively (they can be empty)
+   -->
+
+    <simpleType name = "keywordsType">
+      <list itemType = "string" />
+    </simpleType>
+
+    <complexType name = "sectionType">
+      <sequence>
+        <element name = "name" type = "string"/>
+        <element name = "section_id" type = "string"/>
+        <element name = "keywords" type = "db:keywordsType" minOccurs = "0"/>
+        <element name = "storage_path" type = "string"/>
+      </sequence>
+    </complexType>
+
+    <complexType name = "sectionCollectionType">
+      <sequence>
+        <element name = "section" type = "db:sectionType" minOccurs = "0" maxOccurs = "unbounded"/>
+      </sequence>
+    </complexType>
+
+    <!--
+    change 1
+      There are no longer two types of chapters (previously, chapterWithSections
+      and chapterWithoutSections)
+      It has to be interpreted that if a storage_path is provided, the chapter
+      doesnt have sections and viceversa
+    -->
+
+    <complexType name = "chapterType">
+      <sequence>
+        <element name = "name" type = "string"/>
+        <element name = "chapter_id" type = "string"/>
+        <element name = "keywords" type = "db:keywordsType" minOccurs = "0"/>
+        <!-- One of the storage_path or sections should be present -->
+        <element name = "storage_path" type = "string" minOccurs = "0"/>  <!-- optional -->
+        <element name = "sections" type = "db:sectionCollectionType"> <!-- optional -->
+          <key name="PK_sections">
+            <selector xpath="db:section"/>
+            <field xpath="db:section_id"/>
+          </key>
+        </element>
+      </sequence>
+    </complexType>
+
+    <complexType name = "chapterCollectionType">
+      <sequence>
+        <element name = "chapter" type = "db:chapterType" minOccurs = "0" maxOccurs = "unbounded"/>
+      </sequence>
+    </complexType>
+
+
+    <complexType name = "bookType">
+      <sequence>
+        <element name = "name" type = "string"/>
+        <element name = "book_id" type = "string"/>
+        <element name = "keywords" type = "db:keywordsType" minOccurs = "0"/>
+        <element name = "chapters" type = "db:chapterCollectionType" >
+          <key name="PK_chapters">
+            <selector xpath="db:chapter"/>
+            <field xpath="db:chapter_id"/>
+          </key>
+        </element>
+      </sequence>
+    </complexType>
+
+    <element name = "book" type = "db:bookType"/>
+
+    <element name="books">
+      <complexType>
+        <sequence>
+          <element name = "book" type = "db:bookType" minOccurs = "1" maxOccurs="unbounded"/>
+        </sequence>
+      </complexType>
+      <key name="PK_books">
+        <selector xpath="db:book"/>
+        <field xpath="db:book_id"/>
+      </key>
+    </element>
+
+</schema>

@@ -1,4 +1,4 @@
-// package com.ebooks;
+package com.ebooks;
 
 // import Final_Scripts.CustomEbookBuilder;
 import org.xmldb.api.base.*;
@@ -50,13 +50,15 @@ public class ExistSearchUtil {
        // DatabaseImpl asma = new DatabaseImpl();
 
        protected static String URI = "xmldb:exist://localhost:8081/exist/xmlrpc";
-       protected static String collectionPath = "/db/Testing";
+       protected static String collectionPath = "/db/CustomEbooks";
        protected static String DRIVER = "org.exist.xmldb.DatabaseImpl";
        protected static List<Document> storing = new ArrayList<Document>();
+       static String username = "admin";
+       static String password = "9966638274";
 
        public ExistSearchUtil(){}
 
-	      private static Document convertStringToXMLDocument(String xmlString){
+        private static Document convertStringToXMLDocument(String xmlString){
            //Parser that produces DOM object trees from XML content
            DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
 
@@ -84,19 +86,19 @@ public class ExistSearchUtil {
            DatabaseManager.registerDatabase(database);
 
            // get the collection
-           Collection col = DatabaseManager.getCollection(URI + collectionPath);
+           Collection col = DatabaseManager.getCollection(URI + collectionPath,username,password);
 
            // query for chapters
             String namspac = "declare default element namespace \"https://www.custom-ebooks.com/database-schema\";";
 
-      			List<Document> books_doms= new ArrayList<Document>();
-      			List<String> books_xmls= new ArrayList<String>();
+            List<Document> books_doms= new ArrayList<Document>();
+            List<String> books_xmls= new ArrayList<String>();
 
-    			  for (int i=0;i<Keywords.size();i++){
-    	        String xQuery = "let $books := collection(\"xmldb:exist:///db/Testing\") for $book in $books for $name in $book/book/keywords where contains($name,\'"+Keywords.get(i)+"\') return $book";
+            for (int i=0;i<Keywords.size();i++){
+              String xQuery = "let $books := collection(\"xmldb:exist:///db/CustomEbooks\") for $book in $books for $name in $book/book/keywords where contains($name,\'"+Keywords.get(i)+"\') return $book";
                 // System.out.println(namspac+xQuery);
 
-    	           XPathQueryService xpqs = (XPathQueryService)col.getService("XPathQueryService", "1.0");
+                 XPathQueryService xpqs = (XPathQueryService)col.getService("XPathQueryService", "1.0");
                    xpqs.setProperty("indent", "yes");
 
                    ResourceSet result = xpqs.query(namspac+xQuery);
@@ -104,16 +106,16 @@ public class ExistSearchUtil {
 
                    while (resitr.hasMoreResources()) {
                         Resource r = resitr.nextResource();
-           				     books_xmls.add((String) r.getContent());
+                       books_xmls.add((String) r.getContent());
                   }
            }
 
-    			Set<String> set = new HashSet<String>(books_xmls);
-    			books_xmls.clear();
-    			books_xmls.addAll(set);
+          Set<String> set = new HashSet<String>(books_xmls);
+          books_xmls.clear();
+          books_xmls.addAll(set);
 
-  			  for(int k=0;k<books_xmls.size();k++)
-  							books_doms.add(convertStringToXMLDocument(books_xmls.get(k)));
+          for(int k=0;k<books_xmls.size();k++)
+                books_doms.add(convertStringToXMLDocument(books_xmls.get(k)));
 
           return books_doms;
       }
@@ -128,7 +130,7 @@ public class ExistSearchUtil {
           DatabaseManager.registerDatabase(database);
 
           // get the collection
-          Collection col = DatabaseManager.getCollection(URI + collectionPath);
+          Collection col = DatabaseManager.getCollection(URI + collectionPath,username,password);
 
           // query for chapters
            String namspac = "declare default element namespace \"https://www.custom-ebooks.com/database-schema\";";
@@ -138,11 +140,11 @@ public class ExistSearchUtil {
 
          for (int i=0;i<Keywords.size();i++){
 
-               String xQuery_1 = "let $books := collection(\"xmldb:exist:///db/Testing\") for $book in $books for $name in $book/book/chapters/chapter for$cha in  $name/keywords where contains($name,\'"+Keywords.get(i)+"\') return $name";
+               String xQuery_1 = "let $books := collection(\"xmldb:exist:///db/CustomEbooks\") for $book in $books for $name in $book/book/chapters/chapter for$cha in  $name/keywords where contains($name,\'"+Keywords.get(i)+"\') return $name";
                // System.out.println(namspac+xQuery);
-               String xQuery_2 = "let $books := collection(\"xmldb:exist:///db/Testing\") for $book in $books for $name in $book/book/keywords where contains($name,\'"+Keywords.get(i)+"\') return $book//chapter";
+               String xQuery_2 = "let $books := collection(\"xmldb:exist:///db/CustomEbooks\") for $book in $books for $name in $book/book/keywords where contains($name,\'"+Keywords.get(i)+"\') return $book//chapter";
 
-               // let $books := collection("xmldb:exist:///db/Testing") for $book in $books for $name in $book/book/keywords where contains($name,'db') return $book//chapter
+               // let $books := collection("xmldb:exist:///db/CustomEbooks") for $book in $books for $name in $book/book/keywords where contains($name,'db') return $book//chapter
 
                 XPathQueryService xpqs = (XPathQueryService)col.getService("XPathQueryService", "1.0");
                   xpqs.setProperty("indent", "yes");
@@ -187,7 +189,7 @@ public class ExistSearchUtil {
                DatabaseManager.registerDatabase(database);
 
                // get the collection
-               Collection col = DatabaseManager.getCollection(URI + collectionPath);
+               Collection col = DatabaseManager.getCollection(URI + collectionPath,username,password);
 
                // query for chapters
                 String namspac = "declare default element namespace \"https://www.custom-ebooks.com/database-schema\";";
@@ -197,12 +199,12 @@ public class ExistSearchUtil {
 
               for (int i=0;i<Keywords.size();i++){
 
-                  String xQuery_1 = "let $books := collection(\"xmldb:exist:///db/Testing\") for $book in $books for $sec in $book/book/chapters/chapter/sections/section for $key in  $sec/keywords where contains($key,\'"+Keywords.get(i)+"\') return $sec";
+                  String xQuery_1 = "let $books := collection(\"xmldb:exist:///db/CustomEbooks\") for $book in $books for $sec in $book/book/chapters/chapter/sections/section for $key in  $sec/keywords where contains($key,\'"+Keywords.get(i)+"\') return $sec";
 
 
-                  String xQuery_2 = "let $books := collection(\"xmldb:exist:///db/Testing\") for $book in $books for $name in $book/book/chapters/chapter for$cha in  $name/keywords where contains($name,\'"+Keywords.get(i)+"\') return $name/sections/section";
+                  String xQuery_2 = "let $books := collection(\"xmldb:exist:///db/CustomEbooks\") for $book in $books for $name in $book/book/chapters/chapter for$cha in  $name/keywords where contains($name,\'"+Keywords.get(i)+"\') return $name/sections/section";
                     // System.out.println(namspac+xQuery);
-                    String xQuery_3 = "let $books := collection(\"xmldb:exist:///db/Testing\") for $book in $books for $name in $book/book/keywords where contains($name,\'"+Keywords.get(i)+"\') return $book//section";
+                    String xQuery_3 = "let $books := collection(\"xmldb:exist:///db/CustomEbooks\") for $book in $books for $name in $book/book/keywords where contains($name,\'"+Keywords.get(i)+"\') return $book//section";
 
 
                      XPathQueryService xpqs = (XPathQueryService)col.getService("XPathQueryService", "1.0");
@@ -271,7 +273,7 @@ public class ExistSearchUtil {
     }
 
 
-    public static void StoreIntoCollection(String pathtoFile) throws Exception{
+    public static void StoreIntoCollection(String pathtoFile,String nametoSave) throws Exception{
 
           // initialize database driver
           Database database = (Database) new DatabaseImpl();
@@ -285,7 +287,7 @@ public class ExistSearchUtil {
           try {
               col = getOrCreateCollection(collectionPath);
 
-              res = (XMLResource)col.createResource(null, "XMLResource");
+              res = (XMLResource)col.createResource(nametoSave, "XMLResource");
               File f = new File(pathtoFile);
               if(!f.canRead()) {
 //                  System.out.println("cannot read file " + pathtoFile);
@@ -315,7 +317,7 @@ public class ExistSearchUtil {
 
     private static Collection getOrCreateCollection(String collectionUri, int pathSegmentOffset) throws XMLDBException {
 
-            Collection col = DatabaseManager.getCollection(URI + collectionUri);
+            Collection col = DatabaseManager.getCollection(URI + collectionUri,username,password);
             if(col == null) {
                 if(collectionUri.startsWith("/")) {
                     collectionUri = collectionUri.substring(1);
@@ -329,11 +331,11 @@ public class ExistSearchUtil {
                         path.append("/" + pathSegments[i]);
                     }
 
-                    Collection start = DatabaseManager.getCollection(URI + path);
+                    Collection start = DatabaseManager.getCollection(URI + path,username,password);
                     if(start == null) {
                         //collection does not exist, so create
                         String parentPath = path.substring(0, path.lastIndexOf("/"));
-                        Collection parent = DatabaseManager.getCollection(URI + parentPath);
+                        Collection parent = DatabaseManager.getCollection(URI + parentPath,username,password);
                         CollectionManagementService mgt = (CollectionManagementService) parent.getService("CollectionManagementService", "1.0");
                         col = mgt.createCollection(pathSegments[pathSegmentOffset]);
                         col.close();
@@ -351,13 +353,7 @@ public class ExistSearchUtil {
 
 
     public static void main(String[] args) throws Exception {
+    StoreIntoCollection("./../../uploads/custom_ebooks_schema.xsd","custom_ebooks_schema.xsd");      
 
-      List<String> keys = new ArrayList<String>();
-      keys.add("data");
-      List<Document> final_results = searchByChapter(keys);
-      System.out.println(final_results.size());
-      List<String> names = returnChapterNames(final_results);
-      System.out.println(names.size());
-      System.out.println(PdfLocationAtIndex(0));
   }
 }

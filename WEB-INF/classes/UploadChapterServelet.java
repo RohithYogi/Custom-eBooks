@@ -53,8 +53,11 @@ public class UploadChapterServelet extends HttpServlet {
     try{
 
           HttpSession session = request.getSession();
-
-          int id = (int) session.getAttribute("id")+1;
+          int id;
+          if(session.getAttribute("id")!=null)
+            id = (int) session.getAttribute("id")+1;
+          else 
+            id = 1;
           String chapter_id = String.valueOf(id);
 
           DocumentBuilderFactory documentFactory = DocumentBuilderFactory.newInstance();
@@ -84,7 +87,7 @@ public class UploadChapterServelet extends HttpServlet {
           chapter.appendChild(chapterkeywords);
           chapter.appendChild(chapterstoragepath);
 
-          // PrintWriter out = response.getWriter();
+          PrintWriter out = response.getWriter();
 
           CustomEbookBuilder cb = (CustomEbookBuilder)session.getAttribute("cb");
 
