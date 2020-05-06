@@ -54,7 +54,7 @@ public class ExistSearchUtil {
        protected static String DRIVER = "org.exist.xmldb.DatabaseImpl";
        protected static List<Document> storing = new ArrayList<Document>();
        static String username = "admin";
-       static String password = "admin";
+       static String password = "9966638274";
 
        public ExistSearchUtil(){}
 
@@ -119,7 +119,6 @@ public class ExistSearchUtil {
 
           return books_doms;
       }
-
 
 
       public static List<Document> searchByChapter(List<String> Keywords) throws Exception{
@@ -259,6 +258,33 @@ public class ExistSearchUtil {
           return names;
         }
 
+       public static int noOfBooks() throws Exception{
+
+           // initialize database driver
+           // Class cl = Class.forName(DRIVER);
+          int length = 0;
+           Database database = (Database) new DatabaseImpl();
+           DatabaseManager.registerDatabase(database);
+           
+           // get the collection
+           Collection col = DatabaseManager.getCollection(URI + collectionPath,username,password);
+
+            String namspac = "declare default element namespace \"https://www.custom-ebooks.com/database-schema\";";
+            String xQuery = "let $books := collection(\"xmldb:exist:///db/CustomEbooks\") return $books";
+
+            XPathQueryService xpqs = (XPathQueryService)col.getService("XPathQueryService", "1.0");
+            xpqs.setProperty("indent", "yes");
+
+
+            ResourceSet result = xpqs.query(namspac+xQuery);
+            ResourceIterator resitr = result.getIterator();
+
+            while (resitr.hasMoreResources()){
+              Resource r = resitr.nextResource();
+              length+=1;
+             }
+          return length;
+      }
 
     public static Element ChapterAtIndex(int id){
       Element new_cha_dom = storing.get(id).getDocumentElement();
@@ -353,7 +379,7 @@ public class ExistSearchUtil {
 
 
     public static void main(String[] args) throws Exception {
-    StoreIntoCollection("./../../uploads/custom_ebooks_schema.xsd","custom_ebooks_schema.xsd");
+    StoreIntoCollection("./../../assets/custom_ebooks_schema.xsd","custom_ebooks_schema.xsd");
 
   }
 }

@@ -84,10 +84,19 @@ public class CustomEbookBuilder {
     name.appendChild(text);
     book.appendChild(name);
 
+    Element book_id = document.createElement("book_id");
+    Text empty_id = document.createTextNode("");
+    name.appendChild(empty_id);
+    book.appendChild(book_id);
+
     Element chapters = document.createElement("chapters");
     book.appendChild(chapters);
 
   }
+
+  // public void addBookId(String id){
+
+  // }
 
   public void addChapter(Element chapter){
     Node copiedNode = document.importNode(chapter, true);
@@ -103,7 +112,7 @@ public class CustomEbookBuilder {
     sections.appendChild(copiedNode);
   }
 
-  public Element createChapter(String chapterName, String chapterID, String keywords){
+  public Element createChapter(String chapterName, String chapterID, String keywords, String path){
 
     Element chapter = document.createElement("chapter");
     Element name = document.createElement("name");
@@ -113,13 +122,18 @@ public class CustomEbookBuilder {
 
     Element name2 = document.createElement("chapter_id");
     Text text2 = document.createTextNode(chapterID);
-    name.appendChild(text2);
+    name2.appendChild(text2);
     chapter.appendChild(name2);
 
     Element name3 = document.createElement("keywords");
     Text text3 = document.createTextNode(keywords);
-    name.appendChild(text3);
+    name3.appendChild(text3);
     chapter.appendChild(name3);
+
+    Element name4 = document.createElement("storage_path");
+    Text text4 = document.createTextNode(path);
+    name4.appendChild(text4);
+    chapter.appendChild(name4);
 
     Element sections = document.createElement("sections");
     chapter.appendChild(sections);
@@ -129,7 +143,7 @@ public class CustomEbookBuilder {
   }
 
   public Element createChapter(String chapterName){
-    return createChapter(chapterName, "1", " ");
+    return createChapter(chapterName, "1", " " , " ");
   }
 
   public ArrayList<String> getChapterNames(){
@@ -150,6 +164,12 @@ public class CustomEbookBuilder {
       res.add(sec.getElementsByTagName("name").item(0).getTextContent());
     }
     return res;
+  }
+
+  public void setBookId(String id) {
+
+    Node bookidnode = book.getElementsByTagName("book_id").item(0);
+    bookidnode.setTextContent("2");
   }
 
   public void saveAsXML(String fileName){

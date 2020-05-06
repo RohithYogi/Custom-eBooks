@@ -1,8 +1,17 @@
 $(document).ready(function() {
     $(".bookupload").click(function() {
        // console.log("Hai");
-       $.post(
-           "BookUploadDatabase"
-         )
+       servletCall();
     });
 });
+
+
+function servletCall() {
+  // console.log(chap_id);
+    $.post(
+        "BookUploadDatabase",
+        function(result) {
+          // console.log(result);
+          window.location.replace("jsp/generic.jsp");
+    });
+};

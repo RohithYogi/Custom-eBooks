@@ -59,47 +59,21 @@ public class UploadChapterServelet extends HttpServlet {
           else 
             id = 1;
           String chapter_id = String.valueOf(id);
-
-          DocumentBuilderFactory documentFactory = DocumentBuilderFactory.newInstance();
-          DocumentBuilder documentBuilder = documentFactory.newDocumentBuilder();
-          Document document = documentBuilder.newDocument();
-
-
-          Element chapter = document.createElement("chapter");
-          Element chaptername = document.createElement("name");
-          Element chapterkeywords = document.createElement("keywords");
-          Element chapterid = document.createElement("chapter_id");
-          Element chapterstoragepath = document.createElement("storage_path");
-
-          Text cname = document.createTextNode(chapter_name);
-          Text ctag = document.createTextNode(chapter_tags);
-          Text cid = document.createTextNode(chapter_id);
-          Text csp = document.createTextNode(savePath + File.separator + fileName);
-
-
-          chaptername.appendChild(cname);
-          chapterid.appendChild(cid);
-          chapterkeywords.appendChild(ctag);
-          chapterstoragepath.appendChild(csp);
-
-          chapter.appendChild(chaptername);
-          chapter.appendChild(chapterid);
-          chapter.appendChild(chapterkeywords);
-          chapter.appendChild(chapterstoragepath);
-
-          PrintWriter out = response.getWriter();
+          String chapter_path = savePath + File.separator + fileName;
 
           CustomEbookBuilder cb = (CustomEbookBuilder)session.getAttribute("cb");
 
-          cb.addChapter(chapter);
+
+          Element chap = cb.createChapter(chapter_name,chapter_tags,chapter_id,chapter_path);
+          cb.addChapter(chap);
           session.setAttribute("id",id);
           session.setAttribute("cb",cb);
           response.sendRedirect("./../index.jsp");
 
 
-      }catch (ParserConfigurationException pce) {
+      }catch (Exception e) {
         System.out.println("DEBUG : Unable to create builder instance");
-        pce.printStackTrace();
+        e.printStackTrace();
       }
 
   }

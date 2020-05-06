@@ -39,30 +39,36 @@ public class BookUploadDatabase extends HttpServlet {
       ExistSearchUtil ex = (ExistSearchUtil)session.getAttribute("ex");
       CustomEbookBuilder cb = (CustomEbookBuilder)session.getAttribute("cb");
 
-      String appPath = request.getServletContext().getRealPath("");
-      String savePath = appPath + File.separator + "uploads";
-
-      // creates the save directory if it does not exists
-      File fileSaveDir = new File(savePath);
-      if (!fileSaveDir.exists()) {
-          fileSaveDir.mkdir();
-      }
-
-      File file = new File(savePath+File.separator+"example.xml");
-      if(file.delete()){
-            System.out.println("File deleted");
-        }else System.out.println("File doesn't exist");
-
       try{
-          cb.saveAsXML(savePath+File.separator+"example.xml");
-          ex.StoreIntoCollection("../../uploads/example.xml",null);
-          session.setAttribute("cb",cb);
-          session.setAttribute("ex",ex);
-          response.sendRedirect("/jsp/generic.jsp");
 
-    }catch(Exception e){
-      e.printStackTrace();
+        int book_id = ex.noOfBooks();
+        
+        cb.setBookId(String.valueOf(book_id));
+
+        String appPath = request.getServletContext().getRealPath("");
+        String savePath = appPath + File.separator + "uploads";
+
+        // creates the save directory if it does not exists
+        File fileSaveDir = new File(savePath);
+        if (!fileSaveDir.exists()) {
+            fileSaveDir.mkdir();
+        }
+
+        File file = new File(savePath+File.separator+"example.xml");
+        if(file.delete()){
+              System.out.println("File deleted");
+          }else System.out.println("File doesn't exist");
+
+        cb.saveAsXML(savePath+File.separator+"example.xml");
+        ex.StoreIntoCollection(savePath+File.separator+"example.xml",null);
+
+        session.setAttribute("cb",cb);
+        session.setAttribute("ex",ex);
+    
+      }catch(Exception e){
+        e.printStackTrace();      
     }
+        // response.sendRedirect("./jsp/generic.jsp");
 
 
   }
