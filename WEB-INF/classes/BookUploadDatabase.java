@@ -55,10 +55,10 @@ public class BookUploadDatabase extends HttpServlet {
 
       try{
           cb.saveAsXML(savePath+File.separator+"example.xml");
-          ex.StoreIntoCollection(savePath+File.separator+"example.xml",null);
+          ex.StoreIntoCollection("../../uploads/example.xml",null);
           session.setAttribute("cb",cb);
           session.setAttribute("ex",ex);
-          response.sendRedirect("./../jsp/generic.jsp");
+          response.sendRedirect("/jsp/generic.jsp");
 
     }catch(Exception e){
       e.printStackTrace();

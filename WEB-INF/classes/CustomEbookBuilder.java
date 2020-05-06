@@ -60,12 +60,6 @@ public class CustomEbookBuilder {
       System.out.println("DEBUG : Unable to create builder instance");
       pce.printStackTrace();
     }
-
-    //Testing code
-    Element ch1 = createChapter("Introduction");
-    Element ch2 = createChapter("Transaction management");
-    addChapter(ch1);
-    addChapter(ch2);
   }
 
   public void createEmptyBook(String bookName){
@@ -109,7 +103,7 @@ public class CustomEbookBuilder {
     sections.appendChild(copiedNode);
   }
 
-  public Element createChapter(String chapterName, String chapterID){
+  public Element createChapter(String chapterName, String chapterID, String keywords){
 
     Element chapter = document.createElement("chapter");
     Element name = document.createElement("name");
@@ -122,6 +116,11 @@ public class CustomEbookBuilder {
     name.appendChild(text2);
     chapter.appendChild(name2);
 
+    Element name3 = document.createElement("keywords");
+    Text text3 = document.createTextNode(keywords);
+    name.appendChild(text3);
+    chapter.appendChild(name3);
+
     Element sections = document.createElement("sections");
     chapter.appendChild(sections);
 
@@ -130,7 +129,7 @@ public class CustomEbookBuilder {
   }
 
   public Element createChapter(String chapterName){
-    return createChapter(chapterName, "");
+    return createChapter(chapterName, "1", " ");
   }
 
   public ArrayList<String> getChapterNames(){

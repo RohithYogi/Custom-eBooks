@@ -54,7 +54,7 @@ public class ExistSearchUtil {
        protected static String DRIVER = "org.exist.xmldb.DatabaseImpl";
        protected static List<Document> storing = new ArrayList<Document>();
        static String username = "admin";
-       static String password = "9966638274";
+       static String password = "admin";
 
        public ExistSearchUtil(){}
 
@@ -353,7 +353,7 @@ public class ExistSearchUtil {
 
 
     public static void main(String[] args) throws Exception {
-    StoreIntoCollection("./../../uploads/custom_ebooks_schema.xsd","custom_ebooks_schema.xsd");      
+    StoreIntoCollection("./../../uploads/custom_ebooks_schema.xsd","custom_ebooks_schema.xsd");
 
   }
 }

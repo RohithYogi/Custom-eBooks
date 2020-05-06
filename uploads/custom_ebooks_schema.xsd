@@ -63,7 +63,7 @@
     <complexType name = "bookType">
       <sequence>
         <element name = "name" type = "string"/>
-        <element name = "book_id" type = "string"/>
+        <element name = "book_id" type = "string" minOccurs="0"/>
         <element name = "keywords" type = "db:keywordsType" minOccurs = "0"/>
         <element name = "chapters" type = "db:chapterCollectionType" >
           <key name="PK_chapters">
