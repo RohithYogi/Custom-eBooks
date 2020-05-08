@@ -16,6 +16,16 @@
 </servlet-mapping>
 
 <servlet>
+   <servlet-name>DownloadPDFServlet</servlet-name>
+   <servlet-class>DownloadPDFServlet</servlet-class>
+</servlet>
+
+<servlet-mapping>
+   <servlet-name>DownloadPDFServlet</servlet-name>
+   <url-pattern>/DownloadPDFServlet</url-pattern>
+</servlet-mapping>
+
+<servlet>
    <servlet-name>UserLoginServlet</servlet-name>
    <servlet-class>UserLoginServlet</servlet-class>
 </servlet>

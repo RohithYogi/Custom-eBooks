@@ -95,7 +95,7 @@ public class PDFMerger {
                       }
               }
                 //merged pdf file.
-                String output = "path + File.separator + ebooks/generated.pdf";
+                String output = path + File.separator + "uploads/generated.pdf";
                 OutputStream outputStream = new FileOutputStream(output);
                 //to merge pdf files.
                 mergePdfFiles(inputPdfList, outputStream);

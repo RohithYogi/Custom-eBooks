@@ -56,7 +56,7 @@ public class UploadChapterServelet extends HttpServlet {
           int id;
           if(session.getAttribute("id")!=null)
             id = (int) session.getAttribute("id")+1;
-          else 
+          else
             id = 1;
           String chapter_id = String.valueOf(id);
           String chapter_path = savePath + File.separator + fileName;
@@ -64,7 +64,7 @@ public class UploadChapterServelet extends HttpServlet {
           CustomEbookBuilder cb = (CustomEbookBuilder)session.getAttribute("cb");
 
 
-          Element chap = cb.createChapter(chapter_name,chapter_tags,chapter_id,chapter_path);
+          Element chap = cb.createChapter(chapter_name,chapter_id,chapter_tags,chapter_path);
           cb.addChapter(chap);
           session.setAttribute("id",id);
           session.setAttribute("cb",cb);

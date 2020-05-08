@@ -14,6 +14,8 @@ import java.io.StringReader;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.*;
+import java.nio.file.Paths;
+import java.nio.file.Path;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -32,9 +34,12 @@ public class GetBookSrcServlet extends HttpServlet {
     ExistSearchUtil ex = (ExistSearchUtil)session.getAttribute("ex");
     CustomEbookBuilder cb = (CustomEbookBuilder)session.getAttribute("cb");
     String ret = ex.PdfLocationAtIndex(Integer.parseInt(id));
+    String absPath = "./../uploads/";
+    Path path = Paths.get(ret);
+    ret = path.getFileName().toString();
      // "../GIS_Project_Proposal.pdf";
     // get source of pdf into ret
-    out.println(ret);
+    out.println(absPath + ret);
     session.setAttribute("ex",ex);
   }
 }
