@@ -33,11 +33,11 @@ CustomEbookBuilder API
 
 public class CustomEbookBuilder {
 
-  public DocumentBuilderFactory documentFactory;
-  public DocumentBuilder documentBuilder;
-  Document document;
-  Element book;
-  ArrayList<Element> chaptersList;
+  private DocumentBuilderFactory documentFactory;
+  private DocumentBuilder documentBuilder;
+  private Document document;
+  private Element book;
+  private ArrayList<Element> chaptersList;
 
   public static void main(String[] args){
 
@@ -170,6 +170,10 @@ public class CustomEbookBuilder {
 
     Node bookidnode = book.getElementsByTagName("book_id").item(0);
     bookidnode.setTextContent("2");
+  }
+
+  public Document getDocument() {
+    return document;
   }
 
   public void saveAsXML(String fileName){

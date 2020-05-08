@@ -265,7 +265,7 @@ public class ExistSearchUtil {
           int length = 0;
            Database database = (Database) new DatabaseImpl();
            DatabaseManager.registerDatabase(database);
-           
+
            // get the collection
            Collection col = DatabaseManager.getCollection(URI + collectionPath,username,password);
 
