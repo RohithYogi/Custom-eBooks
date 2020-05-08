@@ -54,7 +54,7 @@ public class ExistSearchUtil {
        protected static String DRIVER = "org.exist.xmldb.DatabaseImpl";
        protected static List<Document> storing = new ArrayList<Document>();
        static String username = "admin";
-       static String password = "9966638274";
+       static String password = "admin";
 
        public ExistSearchUtil(){}
 
