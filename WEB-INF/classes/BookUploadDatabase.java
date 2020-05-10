@@ -62,6 +62,7 @@ public class BookUploadDatabase extends HttpServlet {
         cb.saveAsXML(savePath+File.separator+"example.xml");
         ex.StoreIntoCollection(savePath+File.separator+"example.xml",null);
 
+        cb = new CustomEbookBuilder("Database Systems");
         session.setAttribute("cb",cb);
         session.setAttribute("ex",ex);
     
