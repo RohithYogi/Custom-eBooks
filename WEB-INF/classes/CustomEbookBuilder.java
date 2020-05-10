@@ -176,6 +176,12 @@ public class CustomEbookBuilder {
     return document;
   }
 
+  public void removeChapter(int idx) {
+    Element chapter = chaptersList.get(idx);
+    chapter.getParentNode().removeChild(chapter);
+    chaptersList.remove(idx);
+  }
+
   public void saveAsXML(String fileName){
     try {
       TransformerFactory transformerFactory = TransformerFactory.newInstance();

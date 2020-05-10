@@ -4,14 +4,17 @@ $(document).ready(function() {
     });
 });
 $(document).ready(function() {
-    $(".generatePDF").click(function() {
-      $.get(
-          "DownloadPDFServlet",
+    $(".removeChapter").click(function() {
+      var chap_id = $(this).attr("id");
+      $.post(
+          "RemoveChapterServlet",
+          {name : chap_id},
           function(result) {
-            // console.log(result);
-            window.location.replace("jsp/generic.jsp");
+            $.get("./jsp/book-list.jsp", function (data) {
+                  $("#chapter-list").html(data);
+              });
+          });
       });
-    });
 });
 
 function servletCall() {

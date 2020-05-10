@@ -3,16 +3,23 @@
 <book_id>2</book_id>
 <chapters>
 <chapter>
-<name>cloud computing paper 2</name>
-<chapter_id>cloud computing</chapter_id>
-<keywords>1</keywords>
+<name>cloud paper 1</name>
+<chapter_id>1</chapter_id>
+<keywords>cloud computing</keywords>
+<storage_path>/opt/tomcat/webapps/Custom-eBooks//uploads/06664451.pdf</storage_path>
+<sections/>
+</chapter>
+<chapter>
+<name>cloud paper 2</name>
+<chapter_id>2</chapter_id>
+<keywords>cloud computing</keywords>
 <storage_path>/opt/tomcat/webapps/Custom-eBooks//uploads/7079135.pdf</storage_path>
 <sections/>
 </chapter>
 <chapter>
-<name>cloud computing paper 3</name>
-<chapter_id>cloud computing</chapter_id>
-<keywords>2</keywords>
+<name>cloud paper 3</name>
+<chapter_id>3</chapter_id>
+<keywords>cloud computing</keywords>
 <storage_path>/opt/tomcat/webapps/Custom-eBooks//uploads/07100438.pdf</storage_path>
 <sections/>
 </chapter>

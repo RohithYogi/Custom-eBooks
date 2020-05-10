@@ -75,4 +75,13 @@
   <url-pattern>/jsp/GetBookSrcServlet</url-pattern>
 </servlet-mapping>
 
+<servlet>
+  <servlet-name>RemoveChapterServlet</servlet-name>
+  <servlet-class>RemoveChapterServlet</servlet-class>
+</servlet>
+
+<servlet-mapping>
+  <servlet-name>RemoveChapterServlet</servlet-name>
+  <url-pattern>/RemoveChapterServlet</url-pattern>
+</servlet-mapping>
 </web-app>

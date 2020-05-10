@@ -130,7 +130,50 @@
 		</header>
 
 	<%-- This creates the section containing the dummy books of the page --%>
-		<%@ include file = "jsp/book-list.jsp" %>
+	<link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css" rel="stylesheet">
+	<div id="fh5co-core-feature">
+	  <div class="container">
+	    <div class="row">
+	      <div class="features">
+	        <div class="col-half-image-holder animate-box" data-animate-effect="fadeInRight">
+	          <img class="img-responsive" src="images/bookcover.jpg" alt="samsung">
+	        </div>
+	        <div class="col-half animate-box" data-animate-effect="fadeInLeft">
+	          <div class="table-c">
+	            <div class="desc">
+	              <div class="columns">
+	                <ul class="price">
+	                  <li class="header">Chapters
+	                  <a href="./jsp/search.jsp">
+	                  <button id="btnAdd" type="button" class="btn btn-add" data-toggle="tooltip" data-original-title="Add more controls"><i class="glyphicon glyphicon-plus-sign"></i>&nbsp; Add&nbsp;</button></a></li>
+	                  <!-- <li>Chapter-1</li>
+	                  <li>Chapter-2</li>
+	                  <li>Chapter-3</li>
+	                  <li>Chapter-4</li>
+	                  <li>Chapter-5</li>
+	                  <li>Chapter-6</li>
+	                  <li>Chapter-7</li> -->
+
+
+	                  <div id="chapter-list" class="accordions">
+											<%@ include file = "jsp/book-list.jsp" %>
+	                	</div>
+
+	                  <li id="GeneratePdfButtonId"><a href="DownloadPDFServlet" class="btn btn-lg btn-primary generatePDF">Generate PDF</a></li>
+	                </ul>
+	              </div>
+	            </div>
+	          </div>
+	        </div>
+
+	      </div>
+	    </div>
+	  </div>
+	</div>
+	<%-- <div id="chapter-list"> --%>
+			<%-- <%@ include file = "jsp/book-list.jsp" %> --%>
+
+	<%-- </div> --%>
 		<%}
 		else {%>
 			<header id="fh5co-header" class="fh5co-cover" role="banner" style="background-image:url(images/img_bg_2.jpg);">

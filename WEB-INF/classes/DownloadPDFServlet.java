@@ -22,6 +22,8 @@ public class DownloadPDFServlet extends HttpServlet {
         CustomEbookBuilder cb = (CustomEbookBuilder) session.getAttribute("cb");
         Document doc = cb.getDocument();
         String filePath = PDFMerger.merger(doc, getServletContext().getRealPath(""));
+        // filePath = getServletContext().getRealPath("") + File.separator + "uploads" + File.separator + "generated.pdf";
+
 
         File downloadFile = new File(filePath);
         FileInputStream inStream = new FileInputStream(downloadFile);
