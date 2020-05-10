@@ -19,7 +19,7 @@
   }
   .owl-carousel.owl-drag .owl-item {
     max-width: 350px !important;
-    margin-right: 1% !important;
+    margin-right: 0.5% !important;
     margin-left: 2% !important;
   }
   .owl-carousel .nav-btn{
