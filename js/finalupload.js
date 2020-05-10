@@ -4,17 +4,17 @@ $(document).ready(function() {
     });
 });
 $(document).ready(function() {
-    $(".removeChapter").click(function() {
-      var chap_id = $(this).attr("id");
-      $.post(
-          "RemoveChapterServlet",
-          {name : chap_id},
-          function(result) {
-            $.get("./jsp/book-list.jsp", function (data) {
-                  $("#chapter-list").html(data);
-              });
-          });
-      });
+  $('body').on('click','.removeChapter',function(){
+    var chap_id = $(this).attr("id");
+    $.post(
+        "RemoveChapterServlet",
+        {name : chap_id},
+        function(result) {
+          $.get("./jsp/book-list.jsp", function (data) {
+                $("#chapter-list").html(data);
+            });
+        });
+  });
 });
 
 function servletCall() {
