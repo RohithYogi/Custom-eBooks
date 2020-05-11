@@ -13,6 +13,7 @@ $(document).ready(function() {
           $.get("./jsp/book-list.jsp", function (data) {
                 $("#chapter-list").html(data);
             });
+          toastr.success("Chapter removed")
         });
   });
 });
