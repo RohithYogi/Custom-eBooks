@@ -17,6 +17,9 @@ $(document).ready( jQuery(function() {
                 },
                 1400: {
                     items: 3,
+                },
+                1800: {
+                    items: 4,
                 }
             }
         });
