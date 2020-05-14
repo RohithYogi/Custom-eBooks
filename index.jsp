@@ -200,7 +200,37 @@
 				</div>
 			</div>
 		</header>
-		<%@ include file = "jsp/publisher.jsp" %>
+
+		<link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css" rel="stylesheet">
+		<div id="fh5co-core-feature">
+		  <div class="container">
+		    <div class="row">
+		      <div class="features">
+		        <div class="col-half-image-holder animate-box" data-animate-effect="fadeInRight">
+		          <img class="img-responsive" src="images/producer.jpg" alt="samsung">
+		        </div>
+		        <div class="col-half animate-box" data-animate-effect="fadeInLeft">
+		          <div class="table-c">
+		            <div class="desc">
+		              <div class="columns">
+		                <ul class="price">
+		                  <li class="header">Chapters
+		                  <a href="html/info.html">
+		                  <button id="btnAdd" type="button" class="btn btn-add" data-toggle="tooltip" data-original-title="Add more controls"><i class="glyphicon glyphicon-plus-sign"></i>&nbsp; Add&nbsp;</button></a></li>
+		                  <div id="chapter-list-publisher" class="accordions">
+												<%@ include file = "jsp/publisher.jsp" %>
+											</div>
+			                  <li><button type="button" class="btn btn-lg btn-primary bookupload">Upload PDF</a></button></li>
+			                </ul>
+			              </div>
+			            </div>
+			          </div>
+			        </div>
+
+			      </div>
+			    </div>
+			  </div>
+			</div>
 		<%}%>
 
 

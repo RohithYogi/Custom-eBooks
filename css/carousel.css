@@ -6,21 +6,22 @@
   .owl-dots{
     display: none !important;
   }
- 
-  .owl-theme .owl-dots .owl-dot.active span, 
+
+  .owl-theme .owl-dots .owl-dot.active span,
   .owl-theme .owl-dots .owl-dot:hover span {
       background: #2caae1;
   }
- 
- 
+
+
   .owl-carousel .item {
       text-align: center;
       max-width: 350px !important;
   }
   .owl-carousel.owl-drag .owl-item {
-    max-width: 340px !important;
-    margin-right: 40px !important;
-    margin-left: 40px !important;
+    max-width: 350px !important;
+    margin-right: 1% !important;
+    margin-right: 0.5% !important;
+    margin-left: 2% !important;
   }
   .owl-carousel .nav-btn{
       height: 47px;
@@ -29,13 +30,13 @@
       cursor: pointer;
       top: 30% !important;
   }
- 
+
   .owl-carousel .owl-prev.disabled,
   .owl-carousel .owl-next.disabled{
     pointer-events: none;
     opacity: 0.2;
   }
- 
+
   .owl-carousel .prev-slide{
       background: url(../images/icons-back.png) no-repeat scroll 0 0;
       left: -33px;
@@ -50,7 +51,7 @@
   .owl-carousel .next-slide:hover{
     background-position: -24px -53px;
   }
- 
+
   span.img-text {
     text-decoration: none;
     outline: none;

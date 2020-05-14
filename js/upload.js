@@ -17,6 +17,7 @@
    input.addEventListener(
       "change",
       function (e) {
+        console.log("hello");
          document.getElementById("js-file-name").innerHTML = this.files[0].name;
          document
             .querySelectorAll(".file-input")[0]

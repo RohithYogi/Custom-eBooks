@@ -16,7 +16,7 @@ $(document).ready( jQuery(function() {
                     items: 3,
                 },
                 1400: {
-                    items: 4,
+                    items: 3,
                 }
             }
         });
