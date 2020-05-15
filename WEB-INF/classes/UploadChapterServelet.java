@@ -29,6 +29,19 @@ import org.xml.sax.InputSource;
                  maxFileSize=1024*1024*10,      // 10MB
                  maxRequestSize=1024*1024*50)
 public class UploadChapterServelet extends HttpServlet {
+  
+  public String randomString() {
+        String SALTCHARS = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890";
+        StringBuilder salt = new StringBuilder();
+        Random rnd = new Random();
+        while (salt.length() < 10) { // length of the random string.
+            int index = (int) (rnd.nextFloat() * SALTCHARS.length());
+            salt.append(SALTCHARS.charAt(index));
+        }
+        String saltStr = salt.toString();
+        return saltStr;
+
+    }
 
   public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
@@ -48,7 +61,7 @@ public class UploadChapterServelet extends HttpServlet {
         fileSaveDir.mkdir();
     }
 
-    filePart.write(savePath + File.separator + fileName);
+    filePart.write(savePath + File.separator + randomString() + "_" + fileName);
 
     try{
 
