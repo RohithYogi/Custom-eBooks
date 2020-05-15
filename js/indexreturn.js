@@ -2,7 +2,7 @@ $(document).ready(function() {
     $(".chapter-add-button").click(function() {
         var chap_id = $(this).attr("id");
         if(+chap_id === -1 ){
-          console.log("skip");
+          toastr.error("No chapter selected")
         }
         else {
           addChapterCall(chap_id);

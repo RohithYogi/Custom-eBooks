@@ -20,7 +20,7 @@ for(int i = 0; i < chapters.size(); i++) {%>
         ArrayList sections = cb1.getSectionNames(i);
         for(int j = 0; j < sections.size(); j++) {
       %>
-        <div class="accordions">
+        <div class="accordions book-is-there">
         <div class="accordion-item">
           <div class="accordion-title" data-tab="item<%=i+1%><%=j+1%>">
               <h2><%out.print(sections.get(j));%></h2>

@@ -37,6 +37,7 @@ session.setAttribute("chapter_search_keywords", keywords);
   	<!-- Theme style  -->
   	<link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/carousel.css">
+    <link rel="stylesheet" href="../css/toastr.min.css">
     <!-- Owl Stylesheets -->
     <link rel="stylesheet" href="../css/owl.carousel.min.css">
     <link rel="stylesheet" href="../css/owl.theme.default.min.css">
@@ -198,6 +199,7 @@ session.setAttribute("chapter_search_keywords", keywords);
   	<script src="../js/jquery.waypoints.min.js"></script>
   	<!-- Main -->
   	<script src="../js/main.js"></script>
+    <script src="../js/toastr.min.js"></script>
 
   	</body>
   </html>
