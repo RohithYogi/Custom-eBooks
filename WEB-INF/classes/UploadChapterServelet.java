@@ -62,9 +62,8 @@ public class UploadChapterServelet extends HttpServlet {
           String chapter_path = savePath + File.separator + fileName;
 
           CustomEbookBuilder cb = (CustomEbookBuilder)session.getAttribute("cb");
-
-
           Element chap = cb.createChapter(chapter_name,chapter_id,chapter_tags,chapter_path);
+
           cb.addChapter(chap);
           session.setAttribute("id",id);
           session.setAttribute("cb",cb);

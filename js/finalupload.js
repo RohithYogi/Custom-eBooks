@@ -1,5 +1,6 @@
 $(document).ready(function() {
     $(".bookupload").click(function() {
+      servletCall();
     });
 });
 $(document).ready(function() {
