@@ -61,7 +61,8 @@ public class UploadChapterServelet extends HttpServlet {
         fileSaveDir.mkdir();
     }
 
-    filePart.write(savePath + File.separator + randomString() + "_" + fileName);
+    String chapter_path = savePath + File.separator + randomString() + "_" + fileName + fileName;
+    filePart.write(chapter_path);
 
     try{
 
@@ -72,7 +73,7 @@ public class UploadChapterServelet extends HttpServlet {
           else
             id = 1;
           String chapter_id = String.valueOf(id);
-          String chapter_path = savePath + File.separator + fileName;
+          
 
           CustomEbookBuilder cb = (CustomEbookBuilder)session.getAttribute("cb");
           Element chap = cb.createChapter(chapter_name,chapter_id,chapter_tags,chapter_path);
