@@ -61,7 +61,7 @@ public class UploadChapterServelet extends HttpServlet {
         fileSaveDir.mkdir();
     }
 
-    String chapter_path = savePath + File.separator + randomString() + "_" + fileName + fileName;
+    String chapter_path = savePath + File.separator + randomString() + "_" + fileName ;
     filePart.write(chapter_path);
 
     try{
