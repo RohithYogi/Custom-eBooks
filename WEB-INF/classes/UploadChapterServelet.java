@@ -80,10 +80,11 @@ public class UploadChapterServelet extends HttpServlet {
 
           
           if(!chapter_name.trim().isEmpty()  && !chapter_tags.trim().isEmpty() && !fileName.trim().isEmpty()){
-                      cb.addChapter(chap);
+                  cb.addChapter(chap);
+                  session.setAttribute("id",id);
+                  session.setAttribute("cb",cb);
             }
-          session.setAttribute("id",id);
-          session.setAttribute("cb",cb);
+
           response.sendRedirect("./../index.jsp");
 
 
