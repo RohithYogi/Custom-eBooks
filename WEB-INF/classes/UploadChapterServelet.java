@@ -78,7 +78,10 @@ public class UploadChapterServelet extends HttpServlet {
           CustomEbookBuilder cb = (CustomEbookBuilder)session.getAttribute("cb");
           Element chap = cb.createChapter(chapter_name,chapter_id,chapter_tags,chapter_path);
 
-          cb.addChapter(chap);
+          
+          if(!chapter_name.trim().isEmpty()  && !chapter_tags.trim().isEmpty() && !fileName.trim().isEmpty()){
+                      cb.addChapter(chap);
+            }
           session.setAttribute("id",id);
           session.setAttribute("cb",cb);
           response.sendRedirect("./../index.jsp");
