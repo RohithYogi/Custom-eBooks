@@ -1,14 +1,12 @@
- 
-## 2019-T2- DS 603 / Data Modeling 
- 
 # Custom e-books 
-## Group number: DS603-2020-11 
+## Group number: 11 
 
 ### Group members 
 
 1. IMT2016072 - Nomula Rohith Yogi 
 2. IMT2016091 - Bukka Nikhil Sai 
-3. IMT2016110 - Soumith Kumar Dachepalli  
+3. IMT2016110 - Soumith Kumar Dachepalli 
+4. IMT2016108 - Arunaav Reddy
 
 
 ### Problem Definition  
@@ -35,8 +33,15 @@ Customized e-books are generated from the content provided by the publisher. The
 - A minimalistic website where a publisher uploads the content (books or chapters). And also provide information about the level of the hierarchy.  
 -This website alse lets users search through the different types of content (books or chapters) and select the content of the e-book.  
 - A decent way to stitch the content according to user preferences allowing them to design  
-- the structure of the e-book using structure alignment options. Finally generating a combined pdf file of the customized e-book. 
- 
+- the structure of the e-book using structure alignment options. Finally generating a combined pdf file of the customized e-book.
+
+### Using DevOps Tools: 
+- Jenkins - Continuous Integration
+- Maven - Build
+- Docker - DockerHub
+- Rundeck - Continuous Delivery
+- Selenium - Continuous Testing
+- ELK Stack - Continuous Monitoring
 
 ### Benefits  
 
