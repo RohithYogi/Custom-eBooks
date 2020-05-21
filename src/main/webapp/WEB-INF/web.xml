@@ -1,0 +1,87 @@
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee
+         http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
+         version="3.1">
+
+
+<servlet>
+   <servlet-name>AddBookServelt</servlet-name>
+   <servlet-class>AddBookServelt</servlet-class>
+</servlet>
+
+<servlet-mapping>
+   <servlet-name>AddBookServelt</servlet-name>
+   <url-pattern>/jsp/AddBookServelt</url-pattern>
+</servlet-mapping>
+
+<servlet>
+   <servlet-name>DownloadPDFServlet</servlet-name>
+   <servlet-class>DownloadPDFServlet</servlet-class>
+</servlet>
+
+<servlet-mapping>
+   <servlet-name>DownloadPDFServlet</servlet-name>
+   <url-pattern>/DownloadPDFServlet</url-pattern>
+</servlet-mapping>
+
+<servlet>
+   <servlet-name>UserLoginServlet</servlet-name>
+   <servlet-class>UserLoginServlet</servlet-class>
+</servlet>
+
+<servlet-mapping>
+   <servlet-name>UserLoginServlet</servlet-name>
+   <url-pattern>/jsp/UserLoginServlet</url-pattern>
+</servlet-mapping>
+
+<servlet>
+   <servlet-name>UploadChapterServelet</servlet-name>
+   <servlet-class>UploadChapterServelet</servlet-class>
+</servlet>
+
+<servlet-mapping>
+   <servlet-name>UploadChapterServelet</servlet-name>
+   <url-pattern>/html/UploadChapterServelet</url-pattern>
+</servlet-mapping>
+
+<servlet>
+   <servlet-name>BookUploadDatabase</servlet-name>
+   <servlet-class>BookUploadDatabase</servlet-class>
+</servlet>
+
+<servlet-mapping>
+   <servlet-name>BookUploadDatabase</servlet-name>
+   <url-pattern>/BookUploadDatabase</url-pattern>
+</servlet-mapping>
+
+<servlet>
+  <servlet-name>GetSearchResults</servlet-name>
+  <servlet-class>GetSearchResults</servlet-class>
+</servlet>
+
+<servlet-mapping>
+  <servlet-name>GetSearchResults</servlet-name>
+  <url-pattern>/jsp/GetSearchResults</url-pattern>
+</servlet-mapping>
+
+<servlet>
+  <servlet-name>GetBookSrcServlet</servlet-name>
+  <servlet-class>GetBookSrcServlet</servlet-class>
+</servlet>
+
+<servlet-mapping>
+  <servlet-name>GetBookSrcServlet</servlet-name>
+  <url-pattern>/jsp/GetBookSrcServlet</url-pattern>
+</servlet-mapping>
+
+<servlet>
+  <servlet-name>RemoveChapterServlet</servlet-name>
+  <servlet-class>RemoveChapterServlet</servlet-class>
+</servlet>
+
+<servlet-mapping>
+  <servlet-name>RemoveChapterServlet</servlet-name>
+  <url-pattern>/RemoveChapterServlet</url-pattern>
+</servlet-mapping>
+</web-app>

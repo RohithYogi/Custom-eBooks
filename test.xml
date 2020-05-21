@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?><book xmlns="https://www.custom-ebooks.com/database-schema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://www.custom-ebooks.com/database-schema xmldb:exist:///db/CustomEbooks/custom_ebooks_schema.xsd">
+<name>Database Systems</name>
+<book_id/>
+<chapters>
+<chapter>
+<name>Introduction</name>
+<chapter_id>1</chapter_id>
+<keywords> </keywords>
+<storage_path> </storage_path>
+<sections/>
+</chapter>
+<chapter>
+<name>Transaction management</name>
+<chapter_id>1</chapter_id>
+<keywords> </keywords>
+<storage_path> </storage_path>
+<sections/>
+</chapter>
+</chapters>
+</book>
