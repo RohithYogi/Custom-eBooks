@@ -54,7 +54,7 @@ public class ExistSearchUtil {
        protected static String DRIVER = "org.exist.xmldb.DatabaseImpl";
        protected static List<Document> storing = new ArrayList<Document>();
        static String username = "admin";
-       static String password = "admin";
+       static String password = "";
 
        public ExistSearchUtil(){}
 
@@ -101,8 +101,8 @@ public class ExistSearchUtil {
                    XPathQueryService xpqs = (XPathQueryService)col.getService("XPathQueryService", "1.0");
                    xpqs.setProperty("indent", "yes");
 
-//                   ResourceSet result = xpqs.query(namspac+xQuery);
-		   ResourceSet result = xpqs.query(xQuery);
+                   ResourceSet result = xpqs.query(namspac+xQuery);
+//		   ResourceSet result = xpqs.query(xQuery);
                    ResourceIterator resitr = result.getIterator();
 
                    while (resitr.hasMoreResources()) {
@@ -149,8 +149,8 @@ public class ExistSearchUtil {
                 XPathQueryService xpqs = (XPathQueryService)col.getService("XPathQueryService", "1.0");
                   xpqs.setProperty("indent", "yes");
 		  
-		  ResourceSet result = xpqs.query(xQuery_1);
-//                  ResourceSet result = xpqs.query(namspac+xQuery_1);
+//		  ResourceSet result = xpqs.query(xQuery_1);
+                  ResourceSet result = xpqs.query(namspac+xQuery_1);
                   ResourceIterator resitr = result.getIterator();
 
                   while (resitr.hasMoreResources()) {
@@ -159,8 +159,8 @@ public class ExistSearchUtil {
                        // System.out.println((String) r.getContent());
                  }
 
-                 result = xpqs.query(xQuery_2);
-//                 result = xpqs.query(namspac+xQuery_2);
+//                 result = xpqs.query(xQuery_2);
+                 result = xpqs.query(namspac+xQuery_2);
                  resitr = result.getIterator();
 
                  while (resitr.hasMoreResources()) {
@@ -212,8 +212,8 @@ public class ExistSearchUtil {
                      XPathQueryService xpqs = (XPathQueryService)col.getService("XPathQueryService", "1.0");
                        xpqs.setProperty("indent", "yes");
 
-                       ResourceSet result = xpqs.query(xQuery_1);
-//                       ResourceSet result = xpqs.query(namspac+xQuery_1);
+//                       ResourceSet result = xpqs.query(xQuery_1);
+                       ResourceSet result = xpqs.query(namspac+xQuery_1);
                        ResourceIterator resitr = result.getIterator();
 
                        while (resitr.hasMoreResources()) {
@@ -222,8 +222,8 @@ public class ExistSearchUtil {
                       }
 
 
-                      result = xpqs.query(xQuery_2);  
-//                    result = xpqs.query(namspac+xQuery_2);
+//                      result = xpqs.query(xQuery_2);  
+                    result = xpqs.query(namspac+xQuery_2);
                       resitr = result.getIterator();
 
                       while (resitr.hasMoreResources()) {
@@ -231,8 +231,8 @@ public class ExistSearchUtil {
                           sections_xmls.add((String) r.getContent());
                      }
 
-                    result = xpqs.query(xQuery_3);
-//                    result = xpqs.query(namspac+xQuery_3);
+//                    result = xpqs.query(xQuery_3);
+                    result = xpqs.query(namspac+xQuery_3);
                     resitr = result.getIterator();
 
                      while (resitr.hasMoreResources()) {
@@ -284,8 +284,8 @@ public class ExistSearchUtil {
             xpqs.setProperty("indent", "yes");
 
 
-            ResourceSet result = xpqs.query(xQuery);
-//            ResourceSet result = xpqs.query(namspac+xQuery);
+//            ResourceSet result = xpqs.query(xQuery);
+            ResourceSet result = xpqs.query(namspac+xQuery);
             ResourceIterator resitr = result.getIterator();
 
             while (resitr.hasMoreResources()){

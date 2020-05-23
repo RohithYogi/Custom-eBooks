@@ -67,17 +67,17 @@ public class CustomEbookBuilder {
     book = document.createElement("book");
     document.appendChild(book);
 
-//    Attr attr1 = document.createAttribute("xmlns");
-//    attr1.setValue("https://www.custom-ebooks.com/database-schema");
-//    book.setAttributeNode(attr1);
+    Attr attr1 = document.createAttribute("xmlns");
+    attr1.setValue("https://www.custom-ebooks.com/database-schema");
+    book.setAttributeNode(attr1);
 
-//    Attr attr2 = document.createAttribute("xmlns:xsi");
-//    attr2.setValue("http://www.w3.org/2001/XMLSchema-instance");
-//   book.setAttributeNode(attr2);
+    Attr attr2 = document.createAttribute("xmlns:xsi");
+    attr2.setValue("http://www.w3.org/2001/XMLSchema-instance");
+   book.setAttributeNode(attr2);
 
-//    Attr attr3 = document.createAttribute("xsi:schemaLocation");
-//    attr3.setValue("https://www.custom-ebooks.com/database-schema xmldb:exist:///db/CustomEbooks/custom_ebooks_schema.xsd");
-//    book.setAttributeNode(attr3);
+    Attr attr3 = document.createAttribute("xsi:schemaLocation");
+    attr3.setValue("https://www.custom-ebooks.com/database-schema xmldb:exist:///db/CustomEbooks/custom_ebooks_schema.xsd");
+    book.setAttributeNode(attr3);
 
     Element name = document.createElement("name");
     Text text = document.createTextNode(bookName);
