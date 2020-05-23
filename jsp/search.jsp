@@ -148,7 +148,7 @@ session.setAttribute("chapter_search_keywords", keywords);
           </div>
           <div class="col-md-8">
             <!-- <embed src="" width="600px" height="500px" /> -->
-            <iframe src="../Projectproposal.pdf" style="width:100%; height:500px;" id="pdf_frame"></iframe>
+            <iframe src="https://docs.google.com/document/d/1LJMEmu1RdhK6DXJTeaU54TPE76KAw601ueyY08ChLU8/edit#heading=h.aczyuw2yex2w" style="width:100%; height:500px;" id="pdf_frame"></iframe>
             <button id="-1" type="button" class="btn btn-add chapter-add-button" style="position:absolute;z-index:10000;margin-left:-12%;margin-top:4px;">
               <i class="glyphicon glyphicon-plus-sign"></i>&nbsp; Add&nbsp;
             </button>
