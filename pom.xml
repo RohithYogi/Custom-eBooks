@@ -4,12 +4,12 @@
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
-  <groupId>com.Custom-E-Books.web</groupId>
-  <artifactId>CustomEbooks</artifactId>
+  <groupId>com.Custom-eBooks.web</groupId>
+  <artifactId>Custom-eBooks</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   <packaging>war</packaging>
 
-  <name>CustomEbooks Maven Webapp</name>
+  <name>Custom-eBooks Maven Webapp</name>
   <!-- FIXME change it to the project's website -->
   <url>http://www.example.com</url>
   <properties>
@@ -22,12 +22,17 @@
  
   	<!-- https://mvnrepository.com/artifact/net.sf.existdb/xmldb -->
 
-    <dependency>
-      <groupId>junit</groupId>
-      <artifactId>junit</artifactId>
-      <version>4.11</version>
-      <scope>test</scope>
-    </dependency>
+	<dependency>
+		<groupId>junit</groupId>
+		<artifactId>junit</artifactId>
+		<version>4.11</version>
+		<scope>test</scope>
+	</dependency>
+	<dependency>
+		<groupId>org.seleniumhq.selenium</groupId>
+		<artifactId>selenium-java</artifactId>
+		<version>3.4.0</version>
+	</dependency>
     
     <!-- https://mvnrepository.com/artifact/javax.servlet/javax.servlet-api -->
 	<dependency>
@@ -449,7 +454,7 @@
 
 
   <build>
-    <finalName>CustomEbooks</finalName>
+    <finalName>Custom-eBooks</finalName>
     <pluginManagement><!-- lock down plugins versions to avoid using Maven defaults (may be moved to parent pom) -->
       <plugins>
         <plugin>

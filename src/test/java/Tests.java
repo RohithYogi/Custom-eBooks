@@ -15,7 +15,7 @@ public class Tests {
 		driver = new HtmlUnitDriver();
 
 		//Navigate to desired web page
-		driver.get("http://localhost:8080/Custom-eBooks");
+		driver.get("http://localhost:9090/Custom-eBooks");
 	}
 
 	@Test
