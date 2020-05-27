@@ -1,0 +1,88 @@
+<schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:db="https://www.custom-ebooks.com/database-schema" targetNamespace="https://www.custom-ebooks.com/database-schema" elementFormDefault="qualified" finalDefault="" blockDefault="" attributeFormDefault="unqualified">
+
+    <!--
+    CHANGE LOG
+      change 1 : 4-4-20 : changes to chapter type
+      change 2 : Its now compulsory for book and chapter to have
+      <chapters> and <sections> elements respectively (they can be empty)
+   -->
+
+    <simpleType name="keywordsType">
+      <list itemType="string"/>
+    </simpleType>
+
+    <complexType name="sectionType" mixed="false" abstract="false">
+      <sequence minOccurs="1" maxOccurs="1">
+        <element name="name" type="string" minOccurs="1" maxOccurs="1" nillable="false"/>
+        <element name="section_id" type="string" minOccurs="1" maxOccurs="1" nillable="false"/>
+        <element name="keywords" type="db:keywordsType" minOccurs="0" maxOccurs="1" nillable="false"/>
+        <element name="storage_path" type="string" minOccurs="1" maxOccurs="1" nillable="false"/>
+      </sequence>
+    </complexType>
+
+    <complexType name="sectionCollectionType" mixed="false" abstract="false">
+      <sequence minOccurs="1" maxOccurs="1">
+        <element name="section" type="db:sectionType" minOccurs="0" maxOccurs="unbounded" nillable="false"/>
+      </sequence>
+    </complexType>
+
+    <!--
+    change 1
+      There are no longer two types of chapters (previously, chapterWithSections
+      and chapterWithoutSections)
+      It has to be interpreted that if a storage_path is provided, the chapter
+      doesnt have sections and viceversa
+    -->
+
+    <complexType name="chapterType" mixed="false" abstract="false">
+      <sequence minOccurs="1" maxOccurs="1">
+        <element name="name" type="string" minOccurs="1" maxOccurs="1" nillable="false"/>
+        <element name="chapter_id" type="string" minOccurs="1" maxOccurs="1" nillable="false"/>
+        <element name="keywords" type="db:keywordsType" minOccurs="0" maxOccurs="1" nillable="false"/>
+        <!-- One of the storage_path or sections should be present -->
+        <element name="storage_path" type="string" minOccurs="0" maxOccurs="1" nillable="false"/>  <!-- optional -->
+        <element name="sections" type="db:sectionCollectionType" minOccurs="1" maxOccurs="1" nillable="false"> <!-- optional -->
+          <key name="PK_sections">
+            <selector xpath="db:section"/>
+            <field xpath="db:section_id"/>
+          </key>
+        </element>
+      </sequence>
+    </complexType>
+
+    <complexType name="chapterCollectionType" mixed="false" abstract="false">
+      <sequence minOccurs="1" maxOccurs="1">
+        <element name="chapter" type="db:chapterType" minOccurs="0" maxOccurs="unbounded" nillable="false"/>
+      </sequence>
+    </complexType>
+
+
+    <complexType name="bookType" mixed="false" abstract="false">
+      <sequence minOccurs="1" maxOccurs="1">
+        <element name="name" type="string" minOccurs="1" maxOccurs="1" nillable="false"/>
+        <element name="book_id" type="string" minOccurs="1" maxOccurs="1" nillable="true"/>
+        <element name="keywords" type="db:keywordsType" minOccurs="0" maxOccurs="1" nillable="false"/>
+        <element name="chapters" type="db:chapterCollectionType" minOccurs="1" maxOccurs="1" nillable="false">
+          <key name="PK_chapters">
+            <selector xpath="db:chapter"/>
+            <field xpath="db:chapter_id"/>
+          </key>
+        </element>
+      </sequence>
+    </complexType>
+
+    <element name="book" type="db:bookType" nillable="false" abstract="false"/>
+
+    <element name="books" nillable="false" abstract="false">
+      <complexType mixed="false">
+        <sequence minOccurs="1" maxOccurs="1">
+          <element name="book" type="db:bookType" minOccurs="1" maxOccurs="unbounded" nillable="false"/>
+        </sequence>
+      </complexType>
+      <key name="PK_books">
+        <selector xpath="db:book"/>
+        <field xpath="db:book_id"/>
+      </key>
+    </element>
+
+</schema>
